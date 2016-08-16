@@ -1,0 +1,22 @@
+*{margin:0; padding:0;}
+html{font-family:Microsoft Yahei; font-size:16px;}
+
+/*left-pannel*/
+.pannel-left{display:inline-block; width:220px; height:100%;position:absolute;left:0px;top:0px;background:#3D454D;}
+.sh{display:inline-block; width:32px; height:32px; position:absolute; top:5px; left:5px; z-index: 10;}
+
+/*portrait*/
+.portrait{width:100px; height:100px; display:block; margin:0 auto;}
+.nameSpan{width:100px; height:30px; display:block; margin:0 auto; text-align:center;font-size:1.2em}
+
+/*nav content*/
+.nav{display:inline-block;width:100%;margin-top:15px;}
+.nav span{font-size:24px; width:100px; height:30px; display:block; margin:0 auto; color:#A5A5A5;}
+.nav li{text-decoration:none;width:205; display: block; line-height: 40px; font-size:18px; color:#FFFEE7;padding-left: 15px; cursor:pointer;}
+.nav li:hover{background: #3E4E5E; color:#CEDEEE;}
+
+/*content*/
+.content{height:100%; right:300px; left:250px; background:blue; display:inline-block;}
+
+/*right-pannel*/
+.pannel-right{width:300px; height:100%; position:fixed; background:pink; right:0px; display:inline-block; top:0px;}
