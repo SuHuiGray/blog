@@ -11,6 +11,6 @@
     <?php }?>
 </table>
 <a href="<?php echo base_url('article/index');?>"><?php echo base_url('article/index');?></a>
-<img src="<?php echo res('img/hide.png');?>">
+<!-- <img src="<?php //echo res('img/hide.png');?>"> -->
 </body>
 </html>

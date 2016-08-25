@@ -1,6 +1,6 @@
 <?php
     defined('PROJECT_FOLDER') OR exit('No direct script access allowed');
-
+$start_time = microtime(true);
     require_once SYSTEM_PATH.'/helper/func.php';
     require_once SYSTEM_PATH.'/core/Controller.php';
     // var_dump(config_item('db'));
@@ -15,4 +15,6 @@
     $method =  $route->getMethod();
     $controller = new $c();
     $controller->$method();
+    $end_time = microtime(true);
+    echo number_format($end_time - $start_time, 4);
 ?>
