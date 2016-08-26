@@ -11,7 +11,7 @@
             $arr = array(
                 'pattern' => 'kkk',
             );
-            $this->display('article', $arr);
+            $this->display('index');
         }
 
         public function test(){

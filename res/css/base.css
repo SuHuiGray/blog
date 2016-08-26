@@ -1,12 +1,16 @@
 *{margin:0; padding:0;}
 html{font-family:Microsoft Yahei; font-size:16px;}
+/*header*/
+/*.header{width:100%; height:48px; position:fixed; background:#48525E}
+.m-top{margin-top: 48px}
+.header-img{width:48px; height:48px; float:left;}*/
 
 /*left-pannel*/
-.pannel-left{display:inline-block; width:14%; height:100%; position:absolute; left:0px; top:0px; background:#3D454D;}
+.pannel-left{display:inline-block; width:15%; height:100%; position:fixed; left:0px; top:0px; background:#3D454D;}
 .sh{display:inline-block; width:32px; height:32px; position:absolute; top:5px; left:5px; z-index:10;}
 
 /*portrait*/
-.portrait{width:100px; height:100px; display:block; margin:0 auto;}
+.portrait{width:96px; height:96px; display:block; margin:15px auto;}
 .nameSpan{width:100px; height:30px; display:block; margin:0 auto; text-align:center;font-size:1.2em}
 
 /*nav content*/
@@ -16,15 +20,16 @@ html{font-family:Microsoft Yahei; font-size:16px;}
 .nav li:hover{background: #3E4E5E; color:#CEDEEE;}
 
 /*content*/
-.content{ display:inline-block; width:70%; height:100%; margin-left:14%;}
+.content{ display:inline-block; width:85%; height:100%; margin-left:15%;}
 /*date*/
-.date{float:left; width:6%;height:110px; margin-left:5px; margin-top:20px; border:1px solid silver;}
+.date{float:left; width:6%; height:110px; margin-left:5px; margin-top:20px; border:1px solid silver;}
 .date span{display:block; width:100%; height:36px; text-align:center; font-size:24px;}
 .date span:nth-child(2){border-top:1px solid silver; border-bottom:1px solid silver;}
 /*item*/
-.item{width:98%; height:150px; /*background:pink;*/ margin:5px auto; border-bottom:1px dashed silver;}
+.item{width:95%; height:150px; margin:20px auto; border-bottom:1px dashed silver; margin-left:50px;}
 .item a{ font-size:28px; margin:10px 0px 0px 20px; cursor:pointer;}
 .item p{font-size:14px; margin-left:8%; width:90%; word-break:break-all;}
+.eye::before{background:url(../img/eye_24px_1116114_easyicon.net.png) center left no-repeat; width:32px; height:32px;}
 
 /*right-pannel*/
 .pannel-right{width:16%; height:100%; position:fixed; background:#EFE6DF; right:0px; display:inline-block; top:0px;}
@@ -32,8 +37,5 @@ html{font-family:Microsoft Yahei; font-size:16px;}
 /*rank*/
 .rank{display:inline-block; width:100%; margin-top:20px;}
 .rank span{font-size:24px; height:30px;display:block; margin-left:10px;}
-/*.rank li{text-decoration:none; width:280px; line-height:30px; font-size:15px; padding:20px;}*/
 .rank li{text-decoration:none; width:280px; display: block; line-height: 35px; font-size:15px; padding-left:15px; text-indent:0.8em;}
 .rank li a{cursor:pointer;}
-
-i{content: "\f06e";}
