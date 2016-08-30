@@ -1,23 +1,26 @@
 <?php
     defined('PROJECT_FOLDER') OR exit('No direct script access allowed');
     class Article extends Controller{
+        protected $mysqli;
         public function __construct(){
-            /*$model = new ArticleModel();
-            $name = $model->getName();
-            $view = new ArticleView();
-            $view->show($name);*/
+            $this->mysqli = &load_class('mysqlidb');
         }
+
         public function index() {
-            $arr = array(
-                'pattern' => 'kkk',
-            );
             $this->display('index');
         }
 
         public function test(){
-            $mysqli = &load_class('mysqlidb');
-            $res['result'] = $mysqli->get('test');
+            $res['result'] = $this->mysqli->get('test');
             $this->display('test', $res);
+        }
+
+        //写博客
+        public function write(){
+            $article_model = $this->model('article');
+            $name = $article_model->getName();
+            $data['name'] = $name;
+            $this->display('write', $data);
         }
     }
 ?>

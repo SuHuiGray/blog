@@ -16,5 +16,5 @@ $start_time = microtime(true);
     $controller = new $c();
     $controller->$method();
     $end_time = microtime(true);
-    echo number_format($end_time - $start_time, 4);
+    //echo number_format($end_time - $start_time, 4);
 ?>

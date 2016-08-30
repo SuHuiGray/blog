@@ -66,7 +66,7 @@
         //插入语句,参数arr是关联数组，key是数据库字段，value是要插入的值
         public function insert($table, $arr){
             //构造一个插入字符串
-            $insert_str = 'insert into ' . $table . ' (' . implode(',', array_keys($arr)) . ') values (\'' . implode('\',\'', array_values($arr)) . '\')';
+            $insert_str = 'insert into ' . $table . ' (' . implode(',', array_keys($arr)) . ') values (\'' . implode('\',\'', array_map("_addslashes", array_values($arr))) . '\')';
             $res = mysqli_query($this->conn, $insert_str);
             return mysqli_insert_id();
         }
@@ -79,6 +79,15 @@
             }
             $update_str = substr($update_str, 0, -1) . ' '. $where;
             return $this->dml($update_str);
+        }
+
+        //为插入数据库的数据转移
+        protected function _addslashes($v){
+            if(get_magic_quotes_gpc()){
+                return $v;
+            }
+            else
+                return mysqli_real_escape_string($this->mysqli, $v);
         }
     }
 ?>

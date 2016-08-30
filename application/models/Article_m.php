@@ -1,5 +1,5 @@
 <?php
-    class ArticleModel {
+    class Article_m {
         protected $name;
         public function __construct(){
             $this->name = 'gray';

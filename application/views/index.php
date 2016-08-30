@@ -28,7 +28,7 @@
         </div>
         <a>title</a>
         <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p>
-        <i class='eye'>0</i><span class='num'>35</span>
+        <span class='eye'></span><span class='num'>35</span>
     </div>
 
     <div class="item">

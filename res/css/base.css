@@ -29,7 +29,7 @@ html{font-family:Microsoft Yahei; font-size:16px;}
 .item{width:95%; height:150px; margin:20px auto; border-bottom:1px dashed silver; margin-left:50px;}
 .item a{ font-size:28px; margin:10px 0px 0px 20px; cursor:pointer;}
 .item p{font-size:14px; margin-left:8%; width:90%; word-break:break-all;}
-.eye::before{background:url(../img/eye_24px_1116114_easyicon.net.png) center left no-repeat; width:32px; height:32px;}
+.eye{background:url(../img/eye_24px_1116114_easyicon.net.png) center left no-repeat; display:inline-block; width:32px; height:32px;}
 
 /*right-pannel*/
 .pannel-right{width:16%; height:100%; position:fixed; background:#EFE6DF; right:0px; display:inline-block; top:0px;}
@@ -39,3 +39,8 @@ html{font-family:Microsoft Yahei; font-size:16px;}
 .rank span{font-size:24px; height:30px;display:block; margin-left:10px;}
 .rank li{text-decoration:none; width:280px; display: block; line-height: 35px; font-size:15px; padding-left:15px; text-indent:0.8em;}
 .rank li a{cursor:pointer;}
+
+/*write article*/
+.atitle{width:80%; height:40px; border:1px solid white; margin: 10px 0 10px 2%; font-size:33px;}
+.submit-btn{ width:120px; height:40px; cursor:pointer; outline:none; font: 23px/100% Arial, Helvetica, sans-serif; background: #F1F1F1; border: 1px solid #d5d5d5;color: #B9A499; border-radius:4px; box-shadow:0 1px 2px rgba(241, 241, 241, 0.2); margin:0 2px;outline: medium none;text-shadow:0 1px 1px rgba(0, 0, 0, 0.3); vertical-align: baseline; margin-left:15px;}
+#myeditor{margin-top:15px;}

@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <title>Full example - Editor.md examples</title>
-        <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="../css/editormd.css" />
-        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="<?php echo base_url('editor/examples/css/style.css'); ?>" />
+        <link rel="stylesheet" href="<?php echo base_url('editor/css/editormd.css'); ?>" />
+        <!-- <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" /> -->
         <style>
             /*.editormd-preview-theme-dark {
                 color: #777;
@@ -119,18 +119,18 @@
             </div>
             <div id="test-editormd"></div>
         </div>
-        <script src="js/jquery.min.js"></script>
-        <script src="../editormd.js"></script>
+        <script src="<?php echo res('js/jquery.min.js'); ?>"></script>
+        <script src="<?php echo base_url('editor/editormd.js'); ?>"></script>
         <script type="text/javascript">
             var testEditor;
 
             $(function() {
 
-                $.get('test.md', function(md){
+                $.get('<?php echo base_url('editor/examples/test.md'); ?>', function(md){
                     testEditor = editormd("test-editormd", {
                         width: "90%",
                         height: 740,
-                        path : '../lib/',
+                        path : '<?php echo base_url('editor/lib'); ?>',
                         theme : "dark",
                         previewTheme : "dark",
                         editorTheme : "pastel-on-dark",
@@ -139,7 +139,7 @@
                         //syncScrolling : false,
                         saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
                         searchReplace : true,
-                        // watch : false,                // 关闭实时预览
+                        //watch : false,                // 关闭实时预览
                         htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
                         //toolbar  : false,             //关闭工具栏
                         //previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
@@ -156,7 +156,7 @@
                         //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
                         imageUpload : true,
                         imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                        imageUploadURL : "./php/upload.php",
+                        imageUploadURL : "<?php echo base_url('editor/examples/php/upload.php'); ?>",
                         onload : function() {
                             console.log('onload', this);
                             //this.fullscreen();

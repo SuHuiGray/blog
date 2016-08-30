@@ -25,14 +25,20 @@
     /*返回静态资源的路径*/
     if(!function_exists('res')){
         function res($uri = ''){
-            return 'http://localhost/mypra/blog/res/'.$uri;
+            if(empty(pathinfo($uri, PATHINFO_EXTENSION )))
+                return 'http://localhost/mypra/blog/res/'.$uri.'/';
+            else
+                return 'http://localhost/mypra/blog/res/'.$uri;
         }
     }
 
     /*返回指定控制器的路径*/
     if(!function_exists('base_url')){
         function base_url($uri = ''){
-            return 'http://localhost/mypra/blog/'.$uri;
+            if(empty(pathinfo($uri, PATHINFO_EXTENSION )))
+                return 'http://localhost/mypra/blog/'.$uri.'/';
+            else
+                return 'http://localhost/mypra/blog/'.$uri;
         }
     }
 
