@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="pannelLeft" class="pannel-left">
-    <img src="" id="myIcon" class="portrait">
+    <img src="<?php echo res('img/portrait.jpg')?>" id="myIcon" class="portrait">
     <span class="nameSpan">Gray</span>
     <ul id="nav" class="nav"><span>文章分类</span>
         <li>C/C++</li>
@@ -17,6 +17,7 @@
         <li>JavaScript</li>
         <li>Python</li>
     </ul>
+    <p id="write" class="lab">写文章</p><p id='tag-manage' class="lab">标签管理</p>
 </div>
 
 <div id="content" class="content">
@@ -29,76 +30,6 @@
         <a>title</a>
         <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p>
         <span class='eye'></span><span class='num'>35</span>
-    </div>
-
-    <div class="item">
-        <div class="date">
-            <span>2016</span>
-            <span>08</span>
-            <span>14</span>
-        </div>
-        <a>title</a>
-        <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p>
-    </div>
-
-    <div class="item">
-        <div class="date">
-            <span>2016</span>
-            <span>08</span>
-            <span>14</span>
-        </div>
-        <a>title</a>
-        <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p>
-    </div>
-
-    <div class="item">
-        <div class="date">
-            <span>2016</span>
-            <span>08</span>
-            <span>14</span>
-        </div>
-        <a>title</a>
-        <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p>
-    </div>
-
-    <div class="item">
-        <div class="date">
-            <span>2016</span>
-            <span>08</span>
-            <span>14</span>
-        </div>
-        <a>title</a>
-        <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p>
-    </div>
-
-    <div class="item">
-        <div class="date">
-            <span>2016</span>
-            <span>08</span>
-            <span>14</span>
-        </div>
-        <a>title</a>
-        <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p>
-    </div>
-
-    <div class="item">
-        <div class="date">
-            <span>2016</span>
-            <span>08</span>
-            <span>14</span>
-        </div>
-        <a>title</a>
-        <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p><i></i>
-    </div>
-
-    <div class="item">
-        <div class="date">
-            <span>2016</span>
-            <span>08</span>
-            <span>14</span>
-        </div>
-        <a>title</a>
-        <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p><i></i>
     </div>
 </div>
 
@@ -120,10 +51,10 @@
     <li><a>1</a>&nbsp;&nbsp;(300)</li>
 </ul>
 </div> -->
-<!-- <script type="text/javascript" src="./res/js/jq.js"></script> -->
+<script type="text/javascript" src="<?php echo res('js/jquery.js'); ?>"></script>
 <script>
-/*$(document).ready(function(){
-    var sh = $("#show-hidden"),
+$(document).ready(function(){
+    /*var sh = $("#show-hidden"),
         left = $("#pannelLeft"),
         shimg = $("#shimg");
     sh.on('click', function(){
@@ -135,8 +66,11 @@
             left.animate({left:"0px"},200);
             shimg.attr("src", "./res/img/hide.png");
         }
+    });*/
+    $("#write").on('click', function(){
+        window.location.href = "<?php echo base_url('article/write');?>";
     });
-});*/
+});
 </script>
 </body>
 </html>

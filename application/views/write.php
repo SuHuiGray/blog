@@ -15,7 +15,6 @@
     </div>
 
 </form>
-<span><?php echo $name;?></span>
 
 <script type="text/javascript" src="<?php echo res('js/jquery.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('editor/editormd.js'); ?>"></script>
@@ -51,7 +50,7 @@
             //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
             imageUpload : true,
             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "<?php echo base_url('editor/examples/php/upload.php'); ?>",
+            imageUploadURL : "<?php echo base_url('editor/php/upload.php'); ?>",
             onload : function() {
                 console.log('onload', this);
                 //this.fullscreen();
@@ -62,24 +61,31 @@
                 //this.width("100%");
                 //this.height(480);
                 //this.resize("100%", 640);
+                this.previewing();
             }
         });
 
         $("#backToList").on("click", function(){
-            window.location.href = "<?php echo base_url('article'); ?>"
+            window.location.href = "<?php echo base_url('article'); ?>";
         });
 
         $("#publication").on("click", function(){
+            if($("#title").val() == ''){
+                alert('请输入文章标题');
+                return 0;
+            }
             $.ajax({
                 type : "post",
-                url : "<?php echo base_url('article/write');?>",
-                data : $("#article").serialize();
+                url : "<?php echo base_url('article/publication');?>",
+                data : $("#article").serialize(),
                 success : function(data){
-                    alert(data);
+                    console.log(data);
+                    // alert(data);
                 }
             });
         });
 
+        $(".editormd-preview-close-btn").css("visibility", "hidden");
     });
 </script>
 </body>

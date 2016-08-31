@@ -1,12 +1,17 @@
 <?php
     class Article_m {
-        protected $name;
+        protected $mysqli;
         public function __construct(){
-            $this->name = 'gray';
+            $this->mysqli =  &load_class('mysqlidb');
         }
 
-        public function getName(){
-            return $this->name;
+        /**
+         * add new article
+         * @param array  $arr   the values to insert into database
+         * @return integer    the insert id
+         */
+        public function add($arr){
+            return $this->mysqli->insert('article',$arr);
         }
     }
 ?>

@@ -3,7 +3,8 @@
 
     /*加载类的方法*/
     if(!function_exists('load_class')){
-        function &load_class($class, $dir='core', $param = NULL) {
+        function &load_class($class, $dir='core', $param = NULL)
+        {
             //存放已经加载过的类
             static $classes = array();
             //如果已经加载，返回
@@ -24,7 +25,8 @@
 
     /*返回静态资源的路径*/
     if(!function_exists('res')){
-        function res($uri = ''){
+        function res($uri = '')
+        {
             if(empty(pathinfo($uri, PATHINFO_EXTENSION )))
                 return 'http://localhost/mypra/blog/res/'.$uri.'/';
             else
@@ -34,7 +36,8 @@
 
     /*返回指定控制器的路径*/
     if(!function_exists('base_url')){
-        function base_url($uri = ''){
+        function base_url($uri = '')
+        {
             if(empty(pathinfo($uri, PATHINFO_EXTENSION )))
                 return 'http://localhost/mypra/blog/'.$uri.'/';
             else
@@ -44,7 +47,8 @@
 
     /*获取全部configu*/
     if(!function_exists('get_config')){
-        function &get_config($addition = array()){
+        function &get_config($addition = array())
+        {
             static $config;
             if(empty($config)){
                 $config_path = APP_PATH.'/config/config.php';
@@ -66,7 +70,8 @@
 
     /*获取配置文件中的某一项*/
     if(!function_exists('config_item')){
-        function config_item($item){
+        function config_item($item)
+        {
             static $config;
             if(empty($config)){
                 // references cannot be directly assigned to static variables, so we use an array
@@ -74,6 +79,22 @@
             }
 
             return isset($config[0][$item]) ? $config[0][$item] : NULL;
+        }
+    }
+
+    /*返回json格式的数据*/
+    if(!function_exists('json')){
+        function json($ok=1, $msg='', $data='')
+        {
+            $ret = array();
+            $ret['ok'] = $ok;
+            if(!empty($msg)){
+                $ret['msg'] = $msg;
+            }
+            if(!empty($data)){
+                $ret['data'] = $data;
+            }
+            exit(json_encode($ret));
         }
     }
 
