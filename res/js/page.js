@@ -270,7 +270,7 @@
         }
     };
     $.fn.page = function (option) {
-        var args = slice.call(arguments, 1);
+        var args = slice.call(arguments, 1);        //返回的是数组，让arguments中的元素都拥有array的方法
         var methodReturn;
 
         var $this = $(this);

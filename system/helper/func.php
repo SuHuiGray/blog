@@ -15,7 +15,7 @@
             $class = ucfirst($class);
             $file = SYSTEM_PATH.DIRECTORY_SEPARATOR.$dir.DIRECTORY_SEPARATOR.$class.'.php';
             if(!file_exists($file)){
-                exit($file.'not exists');
+                exit($file.' not exists');
             }
             require_once $file;
             $classes[$class] = isset($param) ? new $class($param) : new $class();
@@ -35,8 +35,8 @@
     }
 
     /*返回指定控制器的路径*/
-    if(!function_exists('base_url')){
-        function base_url($uri = '')
+    if(!function_exists('url')){
+        function url($uri = '')
         {
             if(empty(pathinfo($uri, PATHINFO_EXTENSION )))
                 return 'http://localhost/mypra/blog/'.$uri.'/';

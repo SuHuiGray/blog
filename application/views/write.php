@@ -4,7 +4,7 @@
 <meta charset="utf-8">
     <title>写博客</title>
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="<?php echo base_url('editor/css/editormd.css'); ?>">
+    <link rel="stylesheet" href="<?php echo url('editor/css/editormd.css'); ?>">
     <link rel="stylesheet" href="<?php echo res('css/base.css');?>">
 </head>
 <body>
@@ -17,14 +17,14 @@
 </form>
 
 <script type="text/javascript" src="<?php echo res('js/jquery.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('editor/editormd.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo url('editor/editormd.js'); ?>"></script>
 <script type="text/javascript">
     var editor;
     $(function(){
         editor = editormd("myeditor", {
             width : "99%",
             height : $(window).height()-100,
-            path : "<?php echo base_url('editor/lib'); ?>",
+            path : "<?php echo url('editor/lib'); ?>",
             // theme : "dark",
             // editorTheme : "dark",
             // previewTheme : "dark",
@@ -50,7 +50,7 @@
             //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
             imageUpload : true,
             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL : "<?php echo base_url('editor/php/upload.php'); ?>",
+            imageUploadURL : "<?php echo url('editor/php/upload.php'); ?>",
             onload : function() {
                 console.log('onload', this);
                 //this.fullscreen();
@@ -66,7 +66,7 @@
         });
 
         $("#backToList").on("click", function(){
-            window.location.href = "<?php echo base_url('article'); ?>";
+            window.location.href = "<?php echo url('article'); ?>";
         });
 
         $("#publication").on("click", function(){
@@ -76,7 +76,7 @@
             }
             $.ajax({
                 type : "post",
-                url : "<?php echo base_url('article/publication');?>",
+                url : "<?php echo url('article/publication');?>",
                 data : $("#article").serialize(),
                 success : function(data){
                     console.log(data);

@@ -4,7 +4,7 @@
         /*
          *默认的控制器和方法
          */
-        protected $controller = 'Home';
+        protected $controller = 'Article';
         protected $method = 'index';
         /*
          *segments  --解析后的uri中各段，控制器和方法

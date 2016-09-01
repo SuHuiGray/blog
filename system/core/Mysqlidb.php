@@ -42,7 +42,7 @@
 
         //获取结果集中的第一行
         public function fetchOne($sql){
-            $res = mysqli_query($sql);
+            $res = $this->query($sql);
             $row = mysqli_fetch_assoc($res);
             return empty($row) ? '' : $row;
         }
