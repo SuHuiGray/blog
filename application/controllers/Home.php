@@ -1,7 +1,9 @@
 <?php
     defined('PROJECT_FOLDER') OR exit('No direct script access allowed');
-    class Home extends Controller{
-        public function login(){
+    class Home extends Controller
+    {
+        public function login()
+        {
             $mysqli = &load_class('mysqlidb');
             $user_name = $_POST['usn'];
             $passwd = $_POST['psd'];

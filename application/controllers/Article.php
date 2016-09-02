@@ -1,5 +1,6 @@
 <?php
     defined('PROJECT_FOLDER') OR exit('No direct script access allowed');
+    header("Content-type:text/html; charset=utf-8");
     class Article extends Controller
     {
         //数据库链接
@@ -15,13 +16,9 @@
 
         public function index()
         {
-            $this->display('index');
-        }
-
-        public function test()
-        {
-            $res['result'] = $this->mysqli->get('test');
-            $this->display('test', $res);
+            $data['tags'] = $this->article_model->getAllTags();
+            $data['articles'] = $this->article_model->getArticles();
+            $this->display('index', $data);
         }
 
         //显示编辑器
@@ -33,7 +30,7 @@
         //发布博客
         public function publication()
         {
-            /*$arr = array();
+            $arr = array();
             if(!empty($_POST['title'])){
                 $arr['title'] = $_POST['title'];
             }
@@ -47,8 +44,8 @@
             $insert_id = $this->article_model->add($arr);
             if($insert_id){
                 json(1,'add success', $insert_id);
-            }*/
-            exit(json_encode($_POST));
+            }
+//            exit(json_encode($_POST));
         }
     }
 ?>

@@ -69,6 +69,7 @@
             $insert_str = 'insert into ' . $table . ' (' . implode(',', array_keys($arr)) . ') values (\'' . implode('\',\'', array_map(array(__CLASS__, '_addslashes'), array_values($arr))) . '\')';
             $res = mysqli_query($this->conn, $insert_str);
             return mysqli_insert_id($this->conn);
+//            return $insert_str;
         }
 
         //更新数据库，参数是表名，关联数组，条件

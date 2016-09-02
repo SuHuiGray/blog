@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <title>写博客</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="<?php echo url('editor/css/editormd.css'); ?>">
@@ -26,8 +26,8 @@
             height : $(window).height()-100,
             path : "<?php echo url('editor/lib'); ?>",
             // theme : "dark",
-            // editorTheme : "dark",
             // previewTheme : "dark",
+            // editorTheme : "pastel-on-dark",
             //markdown : md,
             codeFold : true,
             //syncScrolling : false,
@@ -61,7 +61,7 @@
                 //this.width("100%");
                 //this.height(480);
                 //this.resize("100%", 640);
-                this.previewing();
+                // this.previewing();
             }
         });
 
@@ -85,7 +85,7 @@
             });
         });
 
-        $(".editormd-preview-close-btn").css("visibility", "hidden");
+        // $(".editormd-preview-close-btn").css("visibility", "hidden");
     });
 </script>
 </body>

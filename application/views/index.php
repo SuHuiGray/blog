@@ -5,28 +5,46 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" style="text/css" href="<?php echo res('css/base.css');?>">
+    <link rel="stylesheet" href="<?php echo url('editor/css/editormd.css'); ?>">
 </head>
 <style type="text/css">
 
 </style>
 <body>
+
+<!-- 左侧导航 -->
 <div id="pannelLeft" class="pannel-left">
     <img src="<?php echo res('img/portrait.jpg')?>" id="myIcon" class="portrait">
     <span class="nameSpan">Gray</span>
     <ul id="nav" class="nav"><span>文章分类</span>
-        <li>C/C++</li>
+       <!--  <li>C/C++</li>
         <li>Linux</li>
         <li>PHP</li>
         <li>JavaScript</li>
-        <li>Python</li>
+        <li>Python</li> -->
+        <?php foreach($tags as $v){?>
+            <li><?php echo $v;?></li>
+        <?php }?>
     </ul>
     <p id="write" class="lab">写文章</p><p id='tag-manage' class="lab">标签管理</p>
 </div>
 
+<!-- 顶部导航 -->
+<span id="top-nav">导航</span>
+
+<!-- 博客列表 -->
 <div id="content" class="content">
+    <?php foreach($articles as $v){?>
+       <div class="item">
+            <a><?php echo $v['title'];?></a>
+            <p><?php $str = preg_replace('/[A-Za-z`]+/', '', $v['content']); strlen($str)>160 ? mb_substr($str, 0, 160, 'utf-8').'...' : $str; ?></p>
+            <!-- <span class='eye'></span><span class='num'>35</span><span class='eye'></span><span class='num'>35</span> -->
+            <p class="date"><?php echo $v['create_time'];?></p>
+        </div>
+    <?php }?>
     <div class="item">
-        <a>title</a>
-        <p>contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent</p>
+        <a>标题</a>
+        <p>我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的我的</p>
         <!-- <span class='eye'></span><span class='num'>35</span><span class='eye'></span><span class='num'>35</span> -->
         <p class="date">2016-10-02</p>
     </div>
@@ -46,8 +64,18 @@
     </div>
 </div>
 
-<script type="text/javascript" src="<?php echo res('js/jquery.js'); ?>"></script>
-<script>
+<!-- 查看博客 -->
+<!-- <div id="watch" style="display:none"> -->
+    <input type="hidden" id="title" value="title">
+    <div id="preview-div">
+        <textarea id="preview" style="display:none"></textarea>
+    </div>
+<!-- </div> -->
+
+<script type="text/javascript" src="<?php echo res('js/jquery.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo url('editor/editormd.js'); ?>"></script>
+<script type="text/javascript">
+var editor;
 $(document).ready(function(){
     //写文章链接
     $("#write").on('click', function(){
@@ -99,6 +127,22 @@ $(document).ready(function(){
         });
     });
 
+    //浏览文章
+    editor = editormd("preview-div",{
+        width : "60%",
+        height : $(window).height()-100,
+        path : "<?php echo url('editor/lib'); ?>",
+        onload : function(){
+            this.previewing();
+            this.hide();
+        },
+    });
+
+    $("#content a").on("click", function(){
+        $("#content").css("display","none");
+        $("#title").attr("type", "text");
+        editor.show();
+    });
 });
 </script>
 </body>

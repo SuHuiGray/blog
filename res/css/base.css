@@ -4,24 +4,15 @@ html{font-family:Microsoft Yahei; font-size:16px;}
 .ell{text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
 
 /*login*/
-#login{
-    clear:both; position:fixed; display:inline-block; border:1px solid silver; width:320px; height:270px; z-index:100; opacity:1; background:white; top:354px; left:500px;
-}
-#login-text{
-    display:inline-block; margin-top:8px; margin-left:5%; height:32px; font-size:18px; color:red;
-}
-#close{
-    display:inline-block; float:right; background:url(../img/close_gray.png) center no-repeat; width:32px; height:32px; cursor:pointer;margin-top:5px; margin-right:2%;
-}
-#close:hover{
-    background:url(../img/close_red.png) center no-repeat;
-}
-.login-input{
-    width:90%; height:36px; margin-left:5%; margin-top:20px; border-radius:4px; font-size: 16px; border:1px solid silver;
-}
-#login-btn{
-    display:inline-block; width:90%; height:30px; margin-left:5%; margin-top:20px;background:red; text-align:center;padding-top:6px; color:white; font-size:18px; cursor:pointer
-}
+#login{clear:both; position:fixed; display:inline-block; border:1px solid silver; width:320px; height:270px; z-index:100; opacity:1; background:white; top:354px; left:500px;}
+#login-text{display:inline-block; margin-top:8px; margin-left:5%; height:32px; font-size:18px; color:red;}
+#close{display:inline-block; float:right; background:url(../img/close_gray.png) center no-repeat; width:32px; height:32px; cursor:pointer;margin-top:5px; margin-right:2%;}
+#close:hover{background:url(../img/close_red.png) center no-repeat;}
+.login-input{width:90%; height:36px; margin-left:5%; margin-top:20px; border-radius:4px; font-size: 16px; border:1px solid silver;}
+#login-btn{display:inline-block; width:90%; height:30px; margin-left:5%; margin-top:20px;background:red; text-align:center;padding-top:6px; color:white; font-size:18px; cursor:pointer}
+
+/*top-nav*/
+#top-nav{display:inline-block; margin:5px 0 20px 15%; height:36px; font-size:18px; padding-left:15px;}
 
 /*left-pannel*/
 .pannel-left{display:inline-block; width:15%; height:100%; position:fixed; left:0px; top:0px; background:#3D454D;}
@@ -42,11 +33,11 @@ html{font-family:Microsoft Yahei; font-size:16px;}
 /*content*/
 .content{ display:inline-block; width:85%; height:100%; margin-left:15%;}
 /*item*/
-.item{display:inline-block; width:46%; margin:10px 20px; border-bottom:1px dashed silver;}
-.item a{ font-size:28px; margin:10px 0px 0px 20px; cursor:pointer;}
-.item p{font-size:14px; margin-left:20px; width:96%; word-break:break-all; text-indent:2em}
+.item{display:block; position:relative; float:left; width:46%; height:150px; margin:10px 20px; border-bottom:1px dashed silver;}
+.item a{ font-size:20px; margin:10px 0px 0px 20px; cursor:pointer;}
+.item p{font-size:14px; margin-left:20px; width:96%; word-break:break-all; text-indent:2em; letter-spacing:1px;}
 /*.eye{background:url(../img/eye_24px_1116114_easyicon.net.png) center no-repeat; display:inline-block; width:24px; height:24px;}*/
-.date{text-align:right; bottom:0; right:0; margin-top:15px;}
+.date{display:inline-block; position:absolute; text-align:right; bottom:3px; right:0; margin-top:15px;}
 /*right-pannel*/
 .pannel-right{width:16%; height:100%; position:fixed; background:#EFE6DF; right:0px; display:inline-block; top:0px;}
 /*rank*/

@@ -2,89 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5943f79-7b46-4371-b43d-7c6eaf3dff76" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/@links.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/auto-height.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/change-mode.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/code-fold.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/css/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/custom-keyboard-shortcuts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/custom-toolbar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/define-plugin.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/delay-renderer-preview.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/dynamic-create-editormd.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/emoji.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/extends.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/external-use.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/flowchart.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/form-get-value.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/full.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/goto-line.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/html-preview-markdown-to-html-custom-toc-container.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/html-preview-markdown-to-html.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/html-tags-decode.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/image-cross-domain-upload.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/image-upload.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/images/4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/images/7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/images/8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/images/editormd-screenshot.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/js/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/js/require.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/js/sea.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/js/seajs-main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/js/zepto.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/katex.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/manually-load-modules.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/multi-editormd.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/multi-languages.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/on-off.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/onchange.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/onfullscreen.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/onload.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/onpreviewing-onpreviewed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/onresize.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/onscroll-onpreviewscroll.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/onwatch-onunwatch.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/page-break.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/php/cross-domain-upload.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/php/editormd.uploader.class.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/php/post.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/php/upload.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/php/upload_callback.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/readonly.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/resettings.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/search-replace.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/sequence-diagram.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/set-get-replace-selection.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/simple.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/sync-scrolling.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/task-lists.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/test.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/themes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/toc.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/toolbar-auto-fixed.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/use-requirejs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/use-seajs.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/examples/use-zepto.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/bootstrap-test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/codemirror-searchbox-test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/codemirror-test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/css/bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/js/searchbox.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/katex-tests.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/marked-@at-test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/marked-emoji-test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/marked-heading-link-test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/marked-todo-list-test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/qunit/qunit-1.16.0.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/editor/tests/qunit/qunit-1.16.0.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/views/test.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Article.php" afterPath="$PROJECT_DIR$/application/controllers/Article.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Home.php" afterPath="$PROJECT_DIR$/application/controllers/Home.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Article_m.php" afterPath="$PROJECT_DIR$/application/models/Article_m.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/index.php" afterPath="$PROJECT_DIR$/application/views/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/write.php" afterPath="$PROJECT_DIR$/application/views/write.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/css/base.css" afterPath="$PROJECT_DIR$/res/css/base.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/core/Mysqlidb.php" afterPath="$PROJECT_DIR$/system/core/Mysqlidb.php" />
     </list>
     <ignored path="blog.iws" />
@@ -127,34 +52,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="image-dialog.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/editor/plugins/image-dialog/image-dialog.js">
+      <file leaf-file-name="Article.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Article.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
+            <state relative-caret-position="553">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="func.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/helper/func.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="96" column="32" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mysqlidb.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/core/Mysqlidb.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <marker date="1472803398443" expanded="true" signature="1011:1025" placeholder="select * fro... ${$table}" />
+                <marker date="1472803398443" expanded="true" signature="2119:2288" placeholder="insert into ${$table}... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="upload.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/editor/php/upload.php">
+      <file leaf-file-name="Article_m.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/models/Article_m.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="34" column="84" selection-start-line="34" selection-start-column="84" selection-end-line="34" selection-end-column="84" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editormd.uploader.class.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/editor/php/editormd.uploader.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
-              <folding />
+            <state relative-caret-position="966">
+              <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+              <folding>
+                <marker date="1472796127846" expanded="true" signature="599:623" placeholder="select tag_n... tag" />
+                <marker date="1472796127846" expanded="true" signature="1158:1213" placeholder="SELECT title... article" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -173,6 +112,8 @@
         <option value="$PROJECT_DIR$/../../test.php" />
         <option value="$PROJECT_DIR$/editor/php/editormd.uploader.class.php" />
         <option value="$PROJECT_DIR$/editor/php/upload.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Article.php" />
+        <option value="$PROJECT_DIR$/system/core/Mysqlidb.php" />
       </list>
     </option>
   </component>
@@ -218,7 +159,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -247,7 +188,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="editor" />
+              <option name="myItemId" value="system" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -261,51 +202,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="editor" />
+              <option name="myItemId" value="system" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="editor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="image-dialog" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blog" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="editor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="php" />
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -340,10 +241,46 @@
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blog" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blog" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -377,17 +314,18 @@
       <workItem from="1471844534276" duration="1508000" />
       <workItem from="1472608936602" duration="442000" />
       <workItem from="1472609660753" duration="3823000" />
+      <workItem from="1472801011239" duration="2439000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5773000" />
+    <option name="totallyTimeSpent" value="8212000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17147435" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1736111" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Reviews" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -420,7 +358,7 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="7" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -435,95 +373,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/write.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/editor/examples/php/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/editor/examples/php/editormd.uploader.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4531">
-          <caret line="207" column="0" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/articleView.php" />
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/articleController.php" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/articleController.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/articleView.php" />
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/editor/examples/php/upload.php" />
-    <entry file="file://$PROJECT_DIR$/../../h5/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/editor/examples/php/editormd.uploader.class.php" />
-    <entry file="file://$PROJECT_DIR$/editor/plugins/image-dialog/image-dialog.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/write.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
+        <state relative-caret-position="1288">
           <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../test.php">
+    <entry file="file://$PROJECT_DIR$/editor/plugins/image-dialog/image-dialog.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-275">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="897">
+          <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -537,9 +399,145 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/editor/php/editormd.uploader.class.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/write.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editor/examples/php/upload.php" />
+    <entry file="file://$PROJECT_DIR$/editor/examples/php/editormd.uploader.class.php" />
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/articleView.php" />
+    <entry file="file://$PROJECT_DIR$/test.php" />
+    <entry file="file://$PROJECT_DIR$/application/controllers/articleController.php" />
+    <entry file="file://$PROJECT_DIR$/application/controllers/articleController.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/articleView.php" />
+    <entry file="file://$PROJECT_DIR$/test.php" />
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editor/examples/php/upload.php" />
+    <entry file="file://$PROJECT_DIR$/../../h5/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editor/examples/php/editormd.uploader.class.php" />
+    <entry file="file://$PROJECT_DIR$/../../test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-275">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editor/php/editormd.uploader.class.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editor/plugins/image-dialog/image-dialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="48" column="73" selection-start-line="48" selection-start-column="73" selection-end-line="48" selection-end-column="73" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/editor/php/upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="34" column="84" selection-start-line="34" selection-start-column="84" selection-end-line="34" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../phpmy/tbl_structure.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/helper/func.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="96" column="32" selection-start-line="96" selection-start-column="17" selection-end-line="96" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/Mysqlidb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="70" column="12" selection-start-line="70" selection-start-column="12" selection-end-line="70" selection-end-column="12" />
+          <folding>
+            <marker date="1472803398443" expanded="true" signature="1011:1025" placeholder="select * fro... ${$table}" />
+            <marker date="1472803398443" expanded="true" signature="2119:2288" placeholder="insert into ${$table}... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/write.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="56" column="33" selection-start-line="56" selection-start-column="33" selection-end-line="56" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Article_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
+          <folding>
+            <marker date="1472796127846" expanded="true" signature="599:623" placeholder="select tag_n... tag" />
+            <marker date="1472796127846" expanded="true" signature="1158:1213" placeholder="SELECT title... article" />
+          </folding>
         </state>
       </provider>
     </entry>
