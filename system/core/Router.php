@@ -14,7 +14,7 @@
         /*
          *directory     --控制器所在目录
          */
-        protected $directory = APP_PATH.'/controllers/';
+        protected $directory = APP_PATH . '/controllers/';
 
         public function __construct() {
             $uri = &load_class('uri');
