@@ -28,9 +28,9 @@
         function res($uri = '')
         {
             if(empty(pathinfo($uri, PATHINFO_EXTENSION )))
-                return 'http://localhost/mypra/blog/res/'.$uri.'/';
+                return 'http://localhost/blog/res/'.$uri.'/';
             else
-                return 'http://localhost/mypra/blog/res/'.$uri;
+                return 'http://localhost/blog/res/'.$uri;
         }
     }
 
@@ -39,9 +39,9 @@
         function url($uri = '')
         {
             if(empty(pathinfo($uri, PATHINFO_EXTENSION )))
-                return 'http://localhost/mypra/blog/'.$uri.'/';
+                return 'http://localhost/blog/'.$uri.'/';
             else
-                return 'http://localhost/mypra/blog/'.$uri;
+                return 'http://localhost/blog/'.$uri;
         }
     }
 
