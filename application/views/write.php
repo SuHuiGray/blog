@@ -9,6 +9,7 @@
 </head>
 <body>
 <form id="article" name="article" method="post">
+    <input type="hidden" id="tag" name="tag">
     <input id="title" name="title" type="text" class="atitle" placeholder="请输入文章标题"><input type="button" id="publication" class='submit-btn' value="发表博客"><input type="button" id="backToList" class='submit-btn' value="返回列表">
     <div id="myeditor">
         <textarea id="content" name="content" style="display:none"></textarea>
@@ -51,18 +52,6 @@
             imageUpload : true,
             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
             imageUploadURL : "<?php echo url('editor/php/upload.php'); ?>",
-            onload : function() {
-                console.log('onload', this);
-                //this.fullscreen();
-                //this.unwatch();
-                //this.watch().fullscreen();
-
-                //this.setMarkdown("#PHP");
-                //this.width("100%");
-                //this.height(480);
-                //this.resize("100%", 640);
-                // this.previewing();
-            }
         });
 
         $("#backToList").on("click", function(){
@@ -76,16 +65,69 @@
             }
             $.ajax({
                 type : "post",
-                url : "<?php echo url('article/publication');?>",
-                data : $("#article").serialize(),
+                url : "<?php echo url('article/tags');?>",
+                data : '',
                 success : function(data){
                     console.log(data);
-                    // alert(data);
+                    data = JSON.parse(data);
+                    var tags_arr = data.data;
+                    //灰色遮罩
+                    $("body").append("<div id='mask'></div>");
+                    $("#mask").css({"width":$(window).width(), "height":$(window).height(), "z-index":"10"});
+
+                    //选择标签
+                    var tag_str = '<div id="layer" ><p id="layer-text" >选择标签</p><p id="close"></p><br>';
+                    for(var i=0; i<tags_arr.length; i++){
+                        tag_str += '<span class="tag-span">'+tags_arr[i]+'</span>';
+                    }
+                    tag_str += '<div id="tag-store"></div><span id="login-btn">确定</span></div>';
+
+                    $("body").append(tag_str);
+                    var layer_top = ($(window).height()-$("#layer").height())/2,
+                        layer_left = ($(window).width()-$("#layer").width())/2;
+                    $("#layer").css({"top":layer_top, "left":layer_left});
+
+                    //关闭登录界面
+                    $("#close").on("click", function(){
+                        $("#layer,#mask").remove();
+                    });
+
+                    //选择标签
+                    $(".tag-span").on("click", function(){
+                        $(this).addClass("select");
+                        $("#tag-store").append("<span>"+$(this).text()+"</span>");
+
+                        //移除已选标签
+                        $("#tag-store span").on("click", function(){
+                            var select_tag = $(this);
+                            $(".select").each(function(index, obj){
+                                if($(obj).text() == select_tag.text()){
+                                    $(obj).removeClass("select");
+                                    select_tag.remove();
+                                }
+                            });
+                        });
+                    });
+
+                    //发布
+                    $("#login-btn").on("click", function(){
+                        $("#tag").val($("#tag-store span").text());
+                        $.ajax({
+                            type : "post",
+                            url : "<?php echo url('article/publication');?>",
+                            data : $("#article").serialize(),
+                            success : function(data){
+                                data = JSON.parse(data);
+                                if(data.ok){
+                                    $("#mask,#layer").remove();
+                                    alert(data.msg);
+                                }
+                            }
+                        });
+                    });
                 }
             });
         });
-
-        // $(".editormd-preview-close-btn").css("visibility", "hidden");
     });
 </script>
 </body>

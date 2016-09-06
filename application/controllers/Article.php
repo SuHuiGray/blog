@@ -17,7 +17,13 @@
         public function index()
         {
             $data['tags'] = $this->article_model->getAllTags();
-            $data['articles'] = $this->article_model->getArticles();
+           /* $tmp_article = $this->article_model->getArticles();
+            foreach($tmp_article as $key=>$v){
+                $summary = preg_replace('/(```(.|\n)+?```)+/', '', $v['content']);
+                $summary = strlen($summary)>160 ? mb_substr($summary, 0, 160, 'utf-8').'...' : $summary;
+                $tmp_article[$key]['summary'] = $summary;
+            }
+            $data['articles'] = $tmp_article;*/
             $this->display('index', $data);
         }
 
@@ -45,7 +51,54 @@
             if($insert_id){
                 json(1,'add success', $insert_id);
             }
-//            exit(json_encode($_POST));
+        }
+
+        //获取所有标签
+        public function tags()
+        {
+            $arr = $this->article_model->getAllTags();
+            json(1, 'success', $arr);
+        }
+
+        //获取所有文章
+        public function articles()
+        {
+            $current = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '';
+            $size =isset($_GET['size']) && !empty($_GET['size']) ? $_GET['size'] : '';
+            $tag = '';
+            $title = '';
+            if(empty($current) || !is_numeric($current)) $current = 1;
+            if(empty($size) || !is_numeric($size)) $size = 10;
+
+            if(isset($_GET['tag']) && !empty($_GET['tag']))
+                $tag = $_GET['tag'];
+            if(isset($_GET['title']) && !empty($_GET['title']))
+                $title = $_GET['title'];
+
+            $rows = array();
+            $sql = 'SELECT title,content,create_time FROM article WHERE 1=1 limit 0,10';
+            $tmp_article = $this->mysqli->query($sql);
+            while($row = mysqli_fetch_assoc($tmp_article)){
+                $rows[] = array_map(array("Article","_addslashes"), $row);
+            }
+            // $tmp_article = $this->article_model->getArticles($tag, $title);
+            // $result['total'] = ceil(count($tmp_article)/$size);
+            // $limit = " limit ".($current-1)*$size.",".$size;
+            // //$tmp_article = $this->article_model->getArticles($tag, $title, $limit);
+            // $data = array();
+            // foreach($tmp_article as &$v){
+            //     $data[] = $v;
+            //     $summary = preg_replace('/(```(.|\n)+?```)+/', '', $v['content']);
+            //     $summary = strlen($summary)>160 ? mb_substr($summary, 0, 160, 'utf-8').'...' : $summary;
+            //     $data[]['summary'] = $summary;
+            // }
+            // $result['articles'] = $data;
+            exit(json_encode($rows));
+        }
+
+        public function _addslashes($v)
+        {
+            return addslashes($v);
         }
     }
 ?>

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     defined('PROJECT_FOLDER') OR exit('No direct script access allowed');
     class Home extends Controller
     {
@@ -11,6 +12,7 @@
             $res = $mysqli->fetchOne($sql);
 
             if($passwd == $res['passwd']){
+                $_SESSION['user'] = $user_name;
                 json(1, '登录成功');
             }
             else {

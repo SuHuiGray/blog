@@ -28,9 +28,9 @@
         function res($uri = '')
         {
             if(empty(pathinfo($uri, PATHINFO_EXTENSION )))
-                return 'http://localhost/blog/res/'.$uri.'/';
+                return dirname($_SERVER['SCRIPT_NAME']).'/res/'.$uri.'/';
             else
-                return 'http://localhost/blog/res/'.$uri;
+                return dirname($_SERVER['SCRIPT_NAME']).'/res/'.$uri;
         }
     }
 
@@ -39,9 +39,9 @@
         function url($uri = '')
         {
             if(empty(pathinfo($uri, PATHINFO_EXTENSION )))
-                return 'http://localhost/blog/'.$uri.'/';
+                return dirname($_SERVER['SCRIPT_NAME']).'/'.$uri.'/';
             else
-                return 'http://localhost/blog/'.$uri;
+                return dirname($_SERVER['SCRIPT_NAME']).'/'.$uri;
         }
     }
 

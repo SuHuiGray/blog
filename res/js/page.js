@@ -260,6 +260,9 @@
                             that.reload(total); return !1;
                         }
                        if(isFunc(opts.success))opts.success.call(that,result,page);
+                    },
+                    error: function(XMLHttpRequest){
+                        alert(XMLHttpRequest.responseText);
                     }
                 })
             }else{

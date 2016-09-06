@@ -38,11 +38,12 @@
          * @param string    title   the article title
          * @return array    result array of articles
          */
-        public function getArticles($tag='', $title='')
+        public function getArticles($tag='', $title='', $limit='')
         {
             $sql = 'SELECT title,content,create_time FROM article WHERE 1=1 ';
             $sql = empty($tag) ? $sql : $sql . ' AND tag="'.$tag.'"';
             $sql = empty($title) ? $sql : $sql . ' AND title like "%'.$title.'%"';
+            $sql = empty($limit) ? $sql : $sql . $limit;
             return $this->mysqli->fetchAll($sql);
             // return $sql;
         }
