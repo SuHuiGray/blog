@@ -32,7 +32,13 @@
 
 <!-- 博客列表 -->
 <div id="content" class="content">
-
+    <?php foreach($articles as $v){?>
+       <div class="item">
+            <a><?php echo $v['title'];?></a><p class="edit">编辑</p><p class="delete">删除</p>
+            <p class="summary"><?php $str = preg_replace('/(```(.|\n)+?```)+/', '', $v['content']); echo strlen($str)>160 ? mb_substr($str, 0, 160, 'utf-8').'...' : $str;echo $v['summary'] ?></p>
+            <p class="date"><?php echo $v['create_time'];?></p>
+        </div>
+    <?php }?>
     <div class="item">
         <a>标题</a><p class="edit">编辑</p><p class="delete">删除</p>
         <p class="summary"></p>
@@ -82,14 +88,14 @@ $(document).ready(function(){
             $content_body.empty().html(html);
         }
     });*/
-    $.ajax({
+    /*$.ajax({
         url : "<?php echo url('article/articles');?>",
         method : "post",
         data : {},
         success : function(data){
             console.log(data);
         }
-    });
+    });*/
 
     //显示登录界面
     $("#myIcon").on('click', function(){

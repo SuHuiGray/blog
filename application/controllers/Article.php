@@ -17,13 +17,13 @@
         public function index()
         {
             $data['tags'] = $this->article_model->getAllTags();
-           /* $tmp_article = $this->article_model->getArticles();
+            $tmp_article = $this->article_model->getArticles();
             foreach($tmp_article as $key=>$v){
                 $summary = preg_replace('/(```(.|\n)+?```)+/', '', $v['content']);
                 $summary = strlen($summary)>160 ? mb_substr($summary, 0, 160, 'utf-8').'...' : $summary;
                 $tmp_article[$key]['summary'] = $summary;
             }
-            $data['articles'] = $tmp_article;*/
+            $data['articles'] = $tmp_article;
             $this->display('index', $data);
         }
 
