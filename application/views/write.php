@@ -120,7 +120,8 @@
                                 data = JSON.parse(data);
                                 if(data.ok){
                                     $("#mask,#layer").remove();
-                                    alert(data.msg);
+                                    // alert(data.msg);
+                                    console.log(data.data);
                                 }
                             }
                         });

@@ -11,6 +11,7 @@
             $this->db_config = config_item('db');
             $this->conn = mysqli_connect($this->db_config['host'], $this->db_config['username'], $this->db_config['password'], $this->db_config['database']) OR die('Error connect to mysql');
             //$this->mysqli = new mysqli($this->db_config['host'], $this->db_config['username'], $this->db_config['password'], $this->db_config['database']) OR die('Error connect to mysql');
+            mysqli_query($this->conn, "set names utf8");
         }
 
         public function connectOk(){

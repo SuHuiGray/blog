@@ -18,11 +18,6 @@
     <img src="<?php echo res('img/portrait.jpg')?>" id="myIcon" class="portrait">
     <span class="nameSpan">Gray</span>
     <ul id="nav" class="nav"><span>文章分类</span>
-       <!--  <li>C/C++</li>
-        <li>Linux</li>
-        <li>PHP</li>
-        <li>JavaScript</li>
-        <li>Python</li> -->
         <?php foreach($tags as $v){?>
             <li><?php echo $v;?></li>
         <?php }?>
@@ -32,35 +27,20 @@
 
 <!-- 博客列表 -->
 <div id="content" class="content">
-    <?php foreach($articles as $v){?>
-       <div class="item">
-            <a><?php echo $v['title'];?></a><p class="edit">编辑</p><p class="delete">删除</p>
-            <p class="summary"><?php $str = preg_replace('/(```(.|\n)+?```)+/', '', $v['content']); echo strlen($str)>160 ? mb_substr($str, 0, 160, 'utf-8').'...' : $str;echo $v['summary'] ?></p>
-            <p class="date"><?php echo $v['create_time'];?></p>
-        </div>
-    <?php }?>
-    <div class="item">
-        <a>标题</a><p class="edit">编辑</p><p class="delete">删除</p>
-        <p class="summary"></p>
-        <p class="date">2016-10-02</p>
-    </div>
     <div id="content-body"></div>
-    <div id="page-content"></div>
+    <div id="page-content" class="tc"></div>
 </div>
 
 <!-- 查看博客 -->
-    <div id="preview-back"><span id="hide-preview">Back</span><span>title</span></div>
-    <div id="preview-div">
-        <textarea id="preview" style="display:none"></textarea>
-    </div>
+<div id="preview-back"><span id="hide-preview">Back</span><span id="preview-title"></span></div>
 
 <script type="text/javascript" src="<?php echo res('js/jquery.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('editor/editormd.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo res('js/page.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo res('js/tmpl.src.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo res('js/tmpl.js'); ?>"></script>
 <script type="text/tmpl" id="article_tmpl">
     <%if(list && list.length>0){for(var i=0; i<list.length; i++){var v=list[i]; %>
-        <div class="item"><a><%=v.title%></a><p class="edit">编辑</p><p class="delete">删除</p><p class="summary"><%=v.summary%></p><p class="date"><%=v.create_time%></p></div>
+        <div class="item"><a data-id="<%=v.id%>"><%=v.title%></a><p class="edit">编辑</p><p class="delete">删除</p><p class="summary"><%=v.summary%></p><p class="date"><%=v.create_time%></p></div>
     <%}}%>
 </script>
 <script type="text/javascript">
@@ -73,29 +53,75 @@ $(document).ready(function(){
 
     //文章管理
     $("#tag-manage").on('click', function(){
-        // window.location.href = "<?php echo url('article/manage');?>"
+         window.location.href = "<?php echo url('article/articles');?>"
     });
 
     //分页
     var $page_content = $("#page-content"),
         $content_body = $("#content-body");
-    /*$page_content.page({
+    $page_content.page({
         url : "<?php echo url('article/articles'); ?>",
         params : {},
         success : function(data){
-            alert('success');
-            var html = template('article_tmpl', {list:data['articles']});
-            $content_body.empty().html(html);
-        }
-    });*/
-    /*$.ajax({
-        url : "<?php echo url('article/articles');?>",
-        method : "post",
-        data : {},
-        success : function(data){
+            var html = template('article_tmpl', {list:data['data']});
             console.log(data);
+            $content_body.empty().html(html);
+
+            //查看文章内容
+            $(".item a").on("click", function(){
+                var id = $(this).data("id");
+                if(id == '' || id == undefined){
+                    alert("未知错误，请查看其它文章");
+                    return 0;
+                }
+                $.ajax({
+                    url : "<?php echo url('article/getContentById');?>",
+                    method : "post",
+                    data : {"id":id},
+                    success : function(data){
+                        console.log(data);
+                        data = JSON.parse(data);
+                        $("#preview-title").text(data.title);
+                        $.getScript("<?php echo url('editor/editormd.js'); ?>", function() {
+                            $("#preview-back").after("<div id=\"preview-div\"><textarea style=\"display:none\"></textarea></div>");
+                            editor = editormd("preview-div",{
+                                width : "60%",
+                                height : $(window).height()-100,
+                                path : "<?php echo url('editor/lib'); ?>",
+                                markdown : data.content,
+                                onload : function(){
+                                    this.previewing();
+                                    $(".editormd-preview-close-btn").css("visibility","hidden");
+                                },
+                            });
+                            $("#content").css("display","none");
+                            $("#preview-back").css("display", "block");
+                            //隐藏浏览界面
+                            $("#hide-preview").on("click", function(){
+                                $("#preview-back").css("display", "none");
+                                editor.editor.remove();
+                                $("#content").css("display","inline-block");
+                            });
+                        });
+
+                    }
+                });
+            });
+
+
+
+            //显示管理员操作
+            <?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])){?>
+                $(".item").on("mouseover", function(){
+                    $(this).find(".edit, .delete").css("display", "inline-block");
+                });
+
+                $(".item").on("mouseout", function(){
+                    $(this).find(".edit, .delete").css("display", "none");
+                });
+            <?php }?>
         }
-    });*/
+    });
 
     //显示登录界面
     $("#myIcon").on('click', function(){
@@ -138,42 +164,6 @@ $(document).ready(function(){
         });
     });
 
-    //浏览文章的editor
-    editor = editormd("preview-div",{
-        width : "60%",
-        height : $(window).height()-100,
-        path : "<?php echo url('editor/lib'); ?>",
-        onload : function(){
-            this.previewing();
-            this.hide();
-            $(".editormd-preview-close-btn").css("visibility","hidden");
-        },
-    });
-
-    //查看文章内容
-    $("#content a").on("click", function(){
-        $("#content").css("display","none");
-        $("#preview-back").css("display", "block");
-        editor.show();
-    });
-
-    //隐藏浏览界面
-    $("#hide-preview").on("click", function(){
-        $("#preview-back").css("display", "none");
-        editor.hide();
-        $("#content").css("display","inline-block");
-    });
-
-    //显示管理员操作
-    <?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])){?>
-        $(".item").on("mouseover", function(){
-            $(this).find(".edit, .delete").css("display", "inline-block");
-        });
-
-        $(".item").on("mouseout", function(){
-            $(this).find(".edit, .delete").css("display", "none");
-        });
-    <?php }?>
 });
 </script>
 </body>

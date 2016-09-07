@@ -2,7 +2,7 @@
     defined('PROJECT_FOLDER') OR exit('No direct script access allowed');
     $config['db'] = array(
         // 'dsn'   => 'mysql:host=192.168.1.10;dbname=test',
-        'host' => 'localhost',
+        'host' => '127.0.0.1',
         'username' => 'root',
         'password' => '123456',
         'database' => 'blog',

@@ -40,12 +40,23 @@
          */
         public function getArticles($tag='', $title='', $limit='')
         {
-            $sql = 'SELECT title,content,create_time FROM article WHERE 1=1 ';
+            $sql = 'SELECT id, title, content, create_time FROM article WHERE 1=1 ';
             $sql = empty($tag) ? $sql : $sql . ' AND tag="'.$tag.'"';
             $sql = empty($title) ? $sql : $sql . ' AND title like "%'.$title.'%"';
             $sql = empty($limit) ? $sql : $sql . $limit;
             return $this->mysqli->fetchAll($sql);
             // return $sql;
+        }
+
+        /**
+         * return the title and content according to the given id
+         * @param integer   id      article id
+         * @return array    result array contain title & content
+         */
+        public function getContent($id)
+        {
+            $sql = 'SELECT title, content FROM article WHERE id='.$id;
+            return $this->mysqli->fetchOne($sql);
         }
     }
 ?>

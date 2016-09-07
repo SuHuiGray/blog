@@ -33,7 +33,7 @@ html{font-family:Microsoft Yahei; font-size:16px;}
 /*content*/
 .content{ display:inline-block; width:85%; height:100%; margin-left:15%;}
 /*item*/
-.item{display:block; position:relative; float:left; width:46%; height:150px; margin:10px 20px; border-bottom:1px dashed silver;}
+.item{display:inline-block; position:relative; width:46%; height:150px; margin:10px 20px; border-bottom:1px dashed silver;}
 .item a{ font-size:22px; margin:10px 0px 0px 20px; cursor:pointer;}
 .item .edit, .item .delete{display:none; padding-left:20px; margin-left:10px; position:absolute; cursor:pointer;}
 .item .edit{background:url(../img/edit.png) left no-repeat; right:70px;}
