@@ -7,6 +7,8 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" style="text/css" href="<?php echo res('css/base.css');?>">
     <link rel="stylesheet" href="<?php echo url('editor/css/editormd.css'); ?>">
+    <!-- <link rel="stylesheet" style="text/css" href="<?php //echo res('css/normalize.css');?>"> -->
+    <!-- <link rel="stylesheet" style="text/css" href="<?php //echo res('css/style.css');?>"> -->
 </head>
 <style type="text/css">
 
@@ -17,7 +19,13 @@
 <div id="pannelLeft" class="pannel-left">
     <img src="<?php echo res('img/portrait.jpg')?>" id="myIcon" class="portrait">
     <span class="nameSpan">Gray</span>
+    <!-- <input id="search" val="s"><p id="search-icon"></p> -->
+    <div id="search-wrapper">
+        <input type="text" id="search" placeholder="Search article..." />
+        <div id="close-icon"></div>
+    </div>
     <ul id="nav" class="nav"><span>文章分类</span>
+        <li>All</li>
         <?php foreach($tags as $v){?>
             <li><?php echo $v;?></li>
         <?php }?>
@@ -38,6 +46,7 @@
 <script type="text/javascript" src="<?php echo url('editor/editormd.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo res('js/page.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo res('js/tmpl.js'); ?>"></script>
+<!-- <script type="text/javascript" src="<?php //echo res('js/search.js'); ?>"></script> -->
 <script type="text/tmpl" id="article_tmpl">
     <%if(list && list.length>0){for(var i=0; i<list.length; i++){var v=list[i]; %>
         <div class="item"><a data-id="<%=v.id%>"><%=v.title%></a><p class="edit">编辑</p><p class="delete">删除</p><p class="summary"><%=v.summary%></p><p class="date"><%=v.create_time%></p></div>
@@ -64,7 +73,9 @@ $(document).ready(function(){
         params : {},
         success : function(data){
             var html = template('article_tmpl', {list:data['data']});
-            console.log(data);
+            // console.log(html);
+            if(html == '')
+                html = '没有数据';
             $content_body.empty().html(html);
 
             //查看文章内容
@@ -108,7 +119,10 @@ $(document).ready(function(){
                 });
             });
 
-
+            //编辑文章
+            $(".edit").on("click", function(){
+                window.location.href = "<?php echo url('article/write');?>"+"?id="+$(this).siblings("a").data("id");
+            });
 
             //显示管理员操作
             <?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])){?>
@@ -120,6 +134,26 @@ $(document).ready(function(){
                     $(this).find(".edit, .delete").css("display", "none");
                 });
             <?php }?>
+        }
+    });
+
+    //点击标签加载相应文章
+    $("#nav li").on("click", function(){
+        var tag = $(this).text(),
+            obj = $page_content.page('obj');
+        if(tag == "All"){
+            tag = '';
+        }
+        obj.param("tag", tag).reload(1);
+    });
+
+    //搜索文章标题
+    $("#search").on("keypress", function(event){
+        // alert(event.keyCode);
+        if(event.keyCode == "13"){
+            var title = $(this).val(),
+                obj = $page_content.page('obj');
+            obj.param("title", title).reload(1);
         }
     });
 
@@ -151,7 +185,7 @@ $(document).ready(function(){
                     data = JSON.parse(data);
                     if(data.ok){
                         $("#close").trigger('click');
-                        window.locatoin.reload();
+                        window.location.href = window.location.href;
                     }
                     else {
                         alert(data.msg);

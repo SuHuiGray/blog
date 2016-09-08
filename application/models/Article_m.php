@@ -43,6 +43,7 @@
             $sql = 'SELECT id, title, content, create_time FROM article WHERE 1=1 ';
             $sql = empty($tag) ? $sql : $sql . ' AND tag="'.$tag.'"';
             $sql = empty($title) ? $sql : $sql . ' AND title like "%'.$title.'%"';
+            $sql .= ' ORDER BY id DESC';
             $sql = empty($limit) ? $sql : $sql . $limit;
             return $this->mysqli->fetchAll($sql);
             // return $sql;
@@ -57,6 +58,22 @@
         {
             $sql = 'SELECT title, content FROM article WHERE id='.$id;
             return $this->mysqli->fetchOne($sql);
+        }
+
+        /**
+         * edit article and return affect rows
+         * @param array  $arr   the data array content title, content, tags, id
+         * @param array  $where  the condition array
+         * @return integer  affect rows
+         */
+        public function edit($arr, $condition)
+        {
+            $where = ' WHERE 1=1 ';
+            foreach($condition as $k=>$v)
+            {
+                $where .= " AND $k='$v' ";
+            }
+            return $this->mysqli->update("article", $arr, $where);
         }
     }
 ?>

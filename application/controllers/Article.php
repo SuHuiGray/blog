@@ -17,20 +17,20 @@
         public function index()
         {
             $data['tags'] = $this->article_model->getAllTags();
-//            $tmp_article = $this->article_model->getArticles();
-//            foreach($tmp_article as $key=>$v){
-//                $summary = preg_replace('/(```(.|\n)+?```)+/', '', $v['content']);
-//                $summary = strlen($summary)>160 ? mb_substr($summary, 0, 160, 'utf-8').'...' : $summary;
-//                $tmp_article[$key]['summary'] = $summary;
-//            }
-//            $data['articles'] = $tmp_article;
             $this->display('index', $data);
         }
 
         //显示编辑器
         public function write()
         {
-            $this->display('write');
+            $data = array();
+            if(isset($_GET['id']) && !empty($_GET['id'])){
+                $data['id'] = $_GET['id'];
+                $content = $this->article_model->getContent($_GET['id']);
+                $data['title'] = $content['title'];
+                $data['content'] = $content['content'];
+            }
+            $this->display('write', $data);
         }
 
         //发布博客
@@ -45,6 +45,16 @@
             }
             if(!empty($_POST['tag'])){
                 $arr['tag'] = $_POST['tag'];
+            }
+            if(isset($_GET['action']) && !empty($_GET['action'])){
+                $where['id'] = $_GET['id'];
+                $num = $this->article_model->edit($arr, $where);
+                if($num){
+                    json(1, 'edit success', $num);
+                }
+                else {
+                    json(0, 'edit fail');
+                }
             }
             $arr['create_time'] = date('Y-m-d H:i:s');
             $insert_id = $this->article_model->add($arr);

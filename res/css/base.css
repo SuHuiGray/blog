@@ -1,5 +1,5 @@
 *{margin:0; padding:0;}
-html{font-family:Microsoft Yahei; font-size:16px;}
+html{font-family:Arial 'MicroSoft Yahei'; font-size:16px;}
 /*单行文字溢出用点显示*/
 .ell{text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
 
@@ -17,17 +17,20 @@ html{font-family:Microsoft Yahei; font-size:16px;}
 /*left-pannel*/
 .pannel-left{display:inline-block; width:15%; height:100%; position:fixed; left:0px; top:0px; background:#3D454D;}
 .sh{display:inline-block; width:32px; height:32px; position:absolute; top:5px; left:5px; z-index:10;}
-
 /*portrait*/
 .portrait{width:96px; height:96px; display:block; margin:15px auto;}
 .nameSpan{width:100px; height:30px; display:block; margin:0 auto; text-align:center;font-size:1.2em}
-
-/*nav content*/
+/*search*/
+#search-wrapper{position:relative; display:inline-block; width:90%;}
+#search{width:100%; height:32px; border:3px solid #fff; border-radius:1000px; background:none; outline:none; padding-left:10px; margin-left:3px; color:#fff;}
+#search::-webkit-input-placeholder{color: rgba(255, 255, 255, 0.6);}
+#close-icon{display:inline-block; position:absolute; width:24px; height:24px; background:url(../img/cross16.png) center no-repeat; top:6px; right:0px;}
+/*nav*/
 .nav{display:inline-block; width:100%; margin-top:15px;}
-.nav span{font-size:24px; width:100px; height:30px; display:block; margin:0 auto; color:#A5A5A5;}
-.nav li{text-decoration:none; width:100%; display:block; line-height:40px; font-size:18px; color:#FFFEE7; cursor:pointer; text-indent:0.6em;}
+.nav span{font-size:24px; width:100px; height:30px; display:block; margin:0 ; color:#A5A5A5;}
+.nav li{text-decoration:none; width:100%; display:block; line-height:40px; font-size:18px; color:#FFFEE7; cursor:pointer; text-indent:0.6em; text-align:center}
 .nav li:hover{background:#3E4E5E; color:#CEDEEE;}
-.lab{display:inline-block; font-size:18px; width:49%; height:32px; text-align:center; color:#A5A5A5; cursor:pointer; padding-top:6px;}
+.lab{display:none; font-size:18px; width:49%; height:32px; text-align:center; color:#A5A5A5; cursor:pointer; padding-top:6px;}
 .lab:hover{background:#3E4E5E; color:#CEDEEE;}
 
 /*content*/
@@ -41,6 +44,8 @@ html{font-family:Microsoft Yahei; font-size:16px;}
 .item .summary{font-size:14px; margin-left:20px; width:96%; word-break:break-all; text-indent:2em; letter-spacing:1px;}
 /*.eye{background:url(../img/eye_24px_1116114_easyicon.net.png) center no-repeat; display:inline-block; width:24px; height:24px;}*/
 .date{display:inline-block; position:absolute; text-align:right; bottom:3px; right:0; margin-top:15px;}
+
+/*after login  see */
 
 /*right-pannel*/
 .pannel-right{width:16%; height:100%; position:fixed; background:#EFE6DF; right:0px; display:inline-block; top:0px;}

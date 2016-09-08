@@ -1,0 +1,170 @@
+/*body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #E62878;
+  color: #fff;
+  height: 100vh;
+}
+
+h1 {
+  margin-bottom: 0;
+  line-height: 1;
+}
+
+p {
+  margin-bottom: 3rem;
+}
+
+a {
+  color: currentColor;
+}*/
+
+#search-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-left:3px;
+}
+#search-wrapper.search-expanded #close-icon:before {
+  animation: cross-1-in 0.25s linear 0s forwards;
+}
+#search-wrapper.search-expanded #close-icon:after {
+  animation: cross-2-in 0.25s linear 0.2s forwards;
+}
+#search-wrapper.search-expanded:after {
+  animation: lens-out 0.5s linear 1 forwards;
+}
+#search-wrapper:after {
+  position: absolute;
+  bottom: 2px;
+  right: -8px;
+  display: block;
+  content: "";
+  width: 15px;
+  height: 3px;
+  background-color: #fff;
+  transform: rotate(45deg) scaleX(0);
+  transform-origin: 0 50%;
+  animation: lens-in 0.6s linear 0.9s forwards;
+}
+
+#search {
+  color: #fff;
+  background: none;
+  border: 3px solid #fff;
+  outline: none;
+  padding: 6px 14px;
+  border-radius: 1000px;
+  width: 0;
+  transition: width 0.3s 0.6s;
+}
+#search::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+#search:focus {
+  width: 100%;
+}
+
+#close-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-2px);
+  transition: 0.2s all;
+  display: none;
+}
+#close-icon[style*="display: block"] {
+  color: red;
+}
+#close-icon[style*="display: block"]:before {
+  transform: rotate(45deg) scaleX(1) translateY(10px);
+}
+#close-icon[style*="display: block"]:after {
+  transform: rotate(-45deg) scaleX(1) translateY(-10px);
+}
+#close-icon:before, #close-icon:after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 4px;
+  background-color: #fff;
+  transform-origin: 100% 50%;
+}
+#close-icon:before {
+  transform: rotate(45deg) scaleX(0) translateY(10px);
+}
+#close-icon:after {
+  transform: rotate(-45deg) scaleX(0) translateY(-10px);
+}
+#close-icon.closing:before {
+  animation: cross-1-out 0.25s linear 0s forwards;
+}
+#close-icon.closing:after {
+  animation: cross-2-out 0.25s linear 0.2s forwards;
+}
+
+@keyframes lens-out {
+  0% {
+    transform: rotate(45deg) scaleX(1);
+  }
+  30% {
+    transform: rotate(45deg) scaleX(1.4);
+  }
+  100% {
+    transform: rotate(45deg) scaleX(0);
+  }
+}
+@keyframes lens-in {
+  0% {
+    transform: rotate(45deg) scaleX(0);
+  }
+  30% {
+    transform: rotate(45deg) scaleX(1.4);
+  }
+  100% {
+    transform: rotate(45deg) scaleX(1);
+  }
+}
+@keyframes cross-1-in {
+  0% {
+    transform: rotate(45deg) scaleX(0) translateY(10px);
+  }
+  70% {
+    transform: rotate(45deg) scaleX(1.2) translateY(10px);
+  }
+  100% {
+    transform: rotate(45deg) scaleX(1) translateY(10px);
+  }
+}
+@keyframes cross-2-in {
+  0% {
+    transform: rotate(-45deg) scaleX(0) translateY(-10px);
+  }
+  70% {
+    transform: rotate(-45deg) scaleX(1.2) translateY(-10px);
+  }
+  100% {
+    transform: rotate(-45deg) scaleX(1) translateY(-10px);
+  }
+}
+@keyframes cross-1-out {
+  0% {
+    transform: rotate(45deg) scaleX(1) translateY(10px);
+  }
+  100% {
+    transform: rotate(45deg) scaleX(0) translateY(10px);
+  }
+}
+@keyframes cross-2-out {
+  0% {
+    transform: rotate(-45deg) scaleX(1) translateY(-10px);
+  }
+  100% {
+    transform: rotate(-45deg) scaleX(0) translateY(-10px);
+  }
+}
