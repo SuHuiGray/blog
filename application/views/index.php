@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" style="text/css" href="<?php echo res('css/base.css');?>">
     <link rel="stylesheet" href="<?php echo url('editor/css/editormd.css'); ?>">
+    <link rel="stylesheet" style="text/css" href="<?php echo res('css/dialog.css');?>">
     <!-- <link rel="stylesheet" style="text/css" href="<?php //echo res('css/normalize.css');?>"> -->
     <!-- <link rel="stylesheet" style="text/css" href="<?php //echo res('css/style.css');?>"> -->
 </head>
@@ -46,6 +47,7 @@
 <script type="text/javascript" src="<?php echo url('editor/editormd.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo res('js/page.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo res('js/tmpl.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo res('js/dialog.js'); ?>"></script>
 <!-- <script type="text/javascript" src="<?php //echo res('js/search.js'); ?>"></script> -->
 <script type="text/tmpl" id="article_tmpl">
     <%if(list && list.length>0){for(var i=0; i<list.length; i++){var v=list[i]; %>
@@ -62,7 +64,14 @@ $(document).ready(function(){
 
     //文章管理
     $("#tag-manage").on('click', function(){
-         window.location.href = "<?php echo url('article/articles');?>"
+        $.confirm({
+            width : 300,
+            height : 100,
+            cont : '确认删除?',
+            ok : function(){
+                alert("login");
+            }
+        });
     });
 
     //分页

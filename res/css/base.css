@@ -1,10 +1,10 @@
 *{margin:0; padding:0;}
-html{font-family:Arial 'MicroSoft Yahei'; font-size:16px;}
+html{font-family:Verdana, sans-serif, 'MicroSoft Yahei'; font-size:16px;}
 /*单行文字溢出用点显示*/
 .ell{text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
 
 /*login*/
-#layer{clear:both; position:fixed; display:inline-block; border:1px solid silver; width:320px; height:270px; z-index:100; opacity:1; background:white; top:354px; left:500px;}
+#layer{clear:both; position:fixed; display:inline-block; border:1px solid silver; width:320px; height:270px; z-index:100; opacity:1; background:white;}
 #layer-text{display:inline-block; margin-top:8px; margin-left:5%; height:32px; font-size:18px; color:red;}
 #close{display:inline-block; float:right; background:url(../img/close_gray.png) center no-repeat; width:32px; height:32px; cursor:pointer;margin-top:5px; margin-right:2%;}
 #close:hover{background:url(../img/close_red.png) center no-repeat;}
@@ -30,7 +30,7 @@ html{font-family:Arial 'MicroSoft Yahei'; font-size:16px;}
 .nav span{font-size:24px; width:100px; height:30px; display:block; margin:0 ; color:#A5A5A5;}
 .nav li{text-decoration:none; width:100%; display:block; line-height:40px; font-size:18px; color:#FFFEE7; cursor:pointer; text-indent:0.6em; text-align:center}
 .nav li:hover{background:#3E4E5E; color:#CEDEEE;}
-.lab{display:none; font-size:18px; width:49%; height:32px; text-align:center; color:#A5A5A5; cursor:pointer; padding-top:6px;}
+.lab{display:inline-block; font-size:18px; width:49%; height:32px; text-align:center; color:#A5A5A5; cursor:pointer; padding-top:6px;}
 .lab:hover{background:#3E4E5E; color:#CEDEEE;}
 
 /*content*/
