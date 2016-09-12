@@ -27,7 +27,7 @@
             showMask();
             var args = $.extend({}, options, arg);
 
-            var login_str = '<div id="layer" ><p id="layer-text" >登录</p><p id="close"></p><input id="usn" type="text" placeholder="username" id="login-input"><input id="psd" type="password" placeholder="password" id="login-input"><span id="login-btn">'+args.okVal+'</span></div>';
+            var login_str = '<div id="layer" ><p id="layer-text" >登录</p><p id="close"></p><input id="usn" type="text" placeholder="username" class="login-input"><input id="psd" type="password" placeholder="password" class="login-input"><span id="login-btn">'+args.okVal+'</span></div>';
             body.append(login_str);
             var login_top = (w.height()-$("#layer").height())/2,
                 login_left = (w.width()-$("#layer").width())/2;
@@ -58,6 +58,10 @@
 
             $("#dlg").css({"height":args.height, "width":args.width, "top":login_top, "left":login_left});
 
+            //确认操作
+            $("#dlg-cfm-ok").on("click", args.ok);
+
+            //取消操作
             cancel($("#dlg-cfm-cancel"));
         }
     });

@@ -31,7 +31,9 @@
             <li><?php echo $v;?></li>
         <?php }?>
     </ul>
+    <?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?>
     <p id="write" class="lab">写文章</p><p id='tag-manage' class="lab">标签管理</p>
+    <?php } ?>
 </div>
 
 <!-- 博客列表 -->
@@ -51,27 +53,20 @@
 <!-- <script type="text/javascript" src="<?php //echo res('js/search.js'); ?>"></script> -->
 <script type="text/tmpl" id="article_tmpl">
     <%if(list && list.length>0){for(var i=0; i<list.length; i++){var v=list[i]; %>
-        <div class="item"><a data-id="<%=v.id%>"><%=v.title%></a><p class="edit">编辑</p><p class="delete">删除</p><p class="summary"><%=v.summary%></p><p class="date"><%=v.create_time%></p></div>
+        <div class="item"><a data-id="<%=v.id%>"><%=v.title%></a><?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?><p class="edit">编辑</p><p class="delete">删除</p><?php } ?><p class="summary"><%=v.summary%></p><p class="date"><%=v.create_time%></p></div>
     <%}}%>
 </script>
 <script type="text/javascript">
 var editor;
 $(document).ready(function(){
+    //查询清空按钮
+    $("#close-icon").on("click", function(){
+        $("#search").val("");
+    });
+
     //写文章链接
     $("#write").on('click', function(){
         window.location.href = "<?php echo url('article/write');?>";
-    });
-
-    //文章管理
-    $("#tag-manage").on('click', function(){
-        $.confirm({
-            width : 300,
-            height : 100,
-            cont : '确认删除?',
-            ok : function(){
-                alert("login");
-            }
-        });
     });
 
     //分页
@@ -81,7 +76,8 @@ $(document).ready(function(){
         url : "<?php echo url('article/articles'); ?>",
         params : {},
         success : function(data){
-            var html = template('article_tmpl', {list:data['data']});
+            var html = template('article_tmpl', {list:data['data']}),
+                current = data.current;
             // console.log(html);
             if(html == '')
                 html = '没有数据';
@@ -133,6 +129,26 @@ $(document).ready(function(){
                 window.location.href = "<?php echo url('article/write');?>"+"?id="+$(this).siblings("a").data("id");
             });
 
+            //删除文章
+            $(".delete").on('click', function(){
+                var id = $(this).siblings("a").data("id");
+                $.confirm({
+                    width : 300,
+                    height : 100,
+                    cont : '确认删除?',
+                    ok : function(){
+                        console.log(id);
+                        $.get("<?php echo url('article/deleteArticleById');?>" , {"id": id}).done(function(res){
+                                res = JSON.parse(res);
+                                alert(res.msg);
+                                $("#dlg-cfm-cancel").trigger("click");
+                                var obj = $page_content.page('obj');
+                                obj.reload(current);
+                            });
+                    }
+                });
+            });
+
             //显示管理员操作
             <?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])){?>
                 $(".item").on("mouseover", function(){
@@ -168,42 +184,24 @@ $(document).ready(function(){
 
     //显示登录界面
     $("#myIcon").on('click', function(){
-        //灰色遮罩
-        $("body").append("<div id='mask'></div>");
-        $("#mask").css({"width":$(window).width(), "height":$(window).height(), "z-index":"10"});
-
-        //登录界面
-        var login_str = '<div id="layer" ><p id="layer-text" >登录</p><p id="close"></p><input id="usn" type="text" placeholder="username" class="login-input"><input id="psd" type="password" placeholder="password" class="login-input"><span id="login-btn">登录</span></div>';
-        $("body").append(login_str);
-        var login_top = ($(window).height()-$("#layer").height())/2,
-            login_left = ($(window).width()-$("#layer").width())/2;
-        $("#layer").css({"top":login_top, "left":login_left});
-
-        //关闭登录界面
-        $("#close").on("click", function(){
-            $("#layer,#mask").remove();
-        });
-
-        //登录
-        $("#login-btn").on("click", function(){
-            $.ajax({
-                url : "<?php echo url('home/login');?>",
-                method : "post",
-                data : {"usn":$("#usn").val(), "psd":$("#psd").val()},
-                success : function(data){
-                    data = JSON.parse(data);
-                    if(data.ok){
-                        $("#close").trigger('click');
-                        window.location.href = window.location.href;
+        $.login({
+            ok : function(){
+                    $.ajax({
+                    url : "<?php echo url('home/login');?>",
+                    method : "post",
+                    data : {"usn":$("#usn").val(), "psd":$("#psd").val()},
+                    success : function(data){
+                        data = JSON.parse(data);
+                        if(data.ok){
+                            $("#close").trigger('click');
+                            window.location.href = window.location.href;
+                        }
+                        else {
+                            alert(data.msg);
+                        }
                     }
-                    else {
-                        alert(data.msg);
-                    }
-                },
-                error : function(XMLHttpResponse){
-                    alert(XMLHttpResponse.responseText)
-                }
-            });
+                });
+            },
         });
     });
 

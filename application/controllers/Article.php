@@ -95,6 +95,7 @@
                 $tmp_article[$key]['summary'] = $summary;
                 unset($tmp_article[$key]['content']);
             }
+            $result['current'] = $current;
             $result['data'] = $tmp_article;
             exit(json_encode($result));
         }
@@ -105,6 +106,16 @@
             $id = $_POST['id'];
             $content = $this->article_model->getContent($id);
             exit(json_encode($content));
+        }
+
+        //删除指定id的文章
+        public function deleteArticleById(){
+            $id = $_GET['id'];
+            $affect_row = $this->article_model->deleteById($id);
+            if($affect_row)
+                json(1, '删除成功');
+            else
+                json(0, '删除失败');
         }
     }
 ?>

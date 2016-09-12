@@ -75,5 +75,14 @@
             }
             return $this->mysqli->update("article", $arr, $where);
         }
+
+        /**
+         * @param integer   id      article id
+         * @return integer  affetc_rows
+         */
+        public function deleteById($id){
+            $sql = "DELETE FROM article WHERE id=".$id;
+            return $this->mysqli->dml($sql);
+        }
     }
 ?>

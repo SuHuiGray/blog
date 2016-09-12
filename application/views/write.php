@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="<?php echo url('editor/css/editormd.css'); ?>">
     <link rel="stylesheet" href="<?php echo res('css/base.css');?>">
+    <link rel="stylesheet" style="text/css" href="<?php echo res('css/dialog.css');?>">
 </head>
 <body>
 <form id="article" name="article" method="post">
