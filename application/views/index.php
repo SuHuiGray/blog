@@ -4,7 +4,7 @@
 <head>
     <title>blog</title>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="<?php echo url('favicon.ico'); ?>">
     <link rel="stylesheet" style="text/css" href="<?php echo res('css/base.css');?>">
     <link rel="stylesheet" href="<?php echo url('editor/css/editormd.css'); ?>">
     <link rel="stylesheet" style="text/css" href="<?php echo res('css/dialog.css');?>">
