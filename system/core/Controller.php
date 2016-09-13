@@ -27,8 +27,11 @@
         /*缓存视图*/
         private function cacheView($view_path, $param)
         {
-            if(is_array($param))
+            if(is_array($param)){
+                foreach($param as $k=>$v)
+                    $param[$k] = str_replace("\r\n", "<br/>", $v);
                 extract($param);
+            }
             ob_start();
             $file_str = file_get_contents($view_path);
             echo eval('?>'.$file_str);
