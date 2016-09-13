@@ -23,46 +23,33 @@
 <script type="text/javascript">
     var editor;
     $(function(){
-        var id = "<?php echo !empty($id) ? $id : '';?>";
-        $.ajax({
-            url :"<?php echo url('article/getContentById');?>",
-            method : "post",
-            data : {"id":id},
-            success : function(res){
-                res = JSON.parse(res);
-                $("#title").val(res.title);
-                $.getScript("<?php echo url('editor/editormd.js');?>", function(){
-                    editor = editormd("myeditor", {
-                        width : "99%",
-                        height : $(window).height()-100,
-                        path : "<?php echo url('editor/lib'); ?>",
-                        // theme : "dark",
-                        // previewTheme : "dark",
-                        // editorTheme : "pastel-on-dark",
-                        markdown : res.content,
-                        codeFold : true,
-                        // syncScrolling : true,
-                        saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
-                        searchReplace : true,
-                        //watch : false,                // 关闭实时预览
-                        htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
-                        taskList : true,
-                        tocm            : true,         // Using [TOCM]
-                        tex : true,                   // 开启科学公式TeX语言支持，默认关闭
-                        flowChart : true,             // 开启流程图支持，默认关闭
-                        sequenceDiagram : true,       // 开启时序/序列图支持，默认关闭,
-                        imageUpload : true,
-                        imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                        imageUploadURL : "<?php echo url('editor/php/upload.php'); ?>",
-                    });
-                });
-            }
+        $("#title").val("<?php echo empty($title) ? '' : $title?>");
+        editor = editormd("myeditor", {
+            width : "99%",
+            height : $(window).height()-100,
+            path : "<?php echo url('editor/lib'); ?>",
+            // theme : "dark",
+            // previewTheme : "dark",
+            // editorTheme : "pastel-on-dark",
+            markdown : "<?php echo empty($content) ? '' : $content?>",
+            codeFold : true,
+            //syncScrolling : false,
+            saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
+            searchReplace : true,
+            //watch : false,                // 关闭实时预览
+            htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
+            taskList : true,
+            tocm            : true,         // Using [TOCM]
+            tex : true,                   // 开启科学公式TeX语言支持，默认关闭
+            flowChart : true,             // 开启流程图支持，默认关闭
+            sequenceDiagram : true,       // 开启时序/序列图支持，默认关闭,
+            imageUpload : true,
+            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL : "<?php echo url('editor/php/upload.php'); ?>",
         });
 
         $("#backToList").on("click", function(){
             window.location.href = "<?php echo url('article'); ?>";
-            // console.log(editor.getPreviewedHTML());
-            // console.log($("#article").serialize());
         });
 
         $("#publication").on("click", function(){
@@ -121,9 +108,9 @@
                         $("#tag").val($("#tag-store span").text());
                         $.ajax({
                             type : "post",
-                            url : "<?php echo url('article/publication')?>" + "<?php echo empty($id) ? '' : '?action=edit&id='.$id;?>",
+                            url : "<?php echo url('article/publication');?>" + "<?php echo empty($id) ? '' : '?action=edit&id='.$id?>",
                             data : $("#article").serialize(),
-                            success : function(data){console.log(data);
+                            success : function(data){
                                 data = JSON.parse(data);
                                 if(data.ok){
                                     $("#mask,#layer").remove();

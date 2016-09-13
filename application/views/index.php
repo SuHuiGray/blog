@@ -38,12 +38,12 @@
 
 <!-- 博客列表 -->
 <div id="content" class="content">
-    <div id="content-body"></div>
+    <div id="content-body"></div><div style="display:inline-block; width:100%; height:1px"></div>
     <div id="page-content" class="tc"></div>
 </div>
 
 <!-- 查看博客 -->
-<div id="preview-back"><span id="hide-preview">Back</span><span id="preview-title"></span></div>
+<div id="preview-back"><span id="hide-preview">返回</span><span id="preview-title"></span></div><span id="preview-close"></span>
 
 <script type="text/javascript" src="<?php echo res('js/jquery.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('editor/editormd.js'); ?>"></script>
@@ -99,10 +99,10 @@ $(document).ready(function(){
                         data = JSON.parse(data);
                         $("#preview-title").text(data.title);
                         $.getScript("<?php echo url('editor/editormd.js'); ?>", function() {
-                            $("#preview-back").after("<div id=\"preview-div\"><textarea style=\"display:none\"></textarea></div>");
+                            $("#preview-back").after("<div id=\"preview-div\"></div>");
                             editor = editormd("preview-div",{
                                 width : "60%",
-                                height : $(window).height()-100,
+                                height : $(window).height()-70,
                                 path : "<?php echo url('editor/lib'); ?>",
                                 markdown : data.content,
                                 onload : function(){

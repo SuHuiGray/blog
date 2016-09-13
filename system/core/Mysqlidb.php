@@ -68,7 +68,7 @@
                 }
             }
             else {
-                return NULL;
+                return mysqli_error($this->conn);
             }
         }
 
@@ -87,7 +87,7 @@
         {
             $update_str = 'update ' . $table .' set ';
             foreach($arr as $k=>$v){
-                $update_str = $update_str . $k . '=' . "'$v',";
+                $update_str = $update_str . $k . "='" . mysqli_real_escape_string($this->conn, $v)."',";
             }
             $update_str = substr($update_str, 0, -1) . ' '. $where;
             return $this->dml($update_str);

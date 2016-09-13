@@ -23,12 +23,12 @@
         //显示编辑器
         public function write()
         {
-            $data = array();
+            $data['id'] = '';
             if(isset($_GET['id']) && !empty($_GET['id'])){
                 $data['id'] = $_GET['id'];
-                $content = $this->article_model->getContent($_GET['id']);
+                /*$content = $this->article_model->getContent($_GET['id']);
                 $data['title'] = $content['title'];
-                $data['content'] = $content['content'];
+                $data['content'] = $content['content'];*/
             }
             $this->display('write', $data);
         }
@@ -48,12 +48,15 @@
             }
             if(isset($_GET['action']) && !empty($_GET['action'])){
                 $where['id'] = $_GET['id'];
-                $num = $this->article_model->edit($arr, $where);
-                if($num){
-                    json(1, 'edit success', $num);
+                $res = $this->article_model->edit($arr, $where);
+                if(is_numeric($res) && $res){
+                    json(1, 'edit success', $res);
+                }
+                else if(is_numeric($res) && 0 === $res){
+                    json(0, 'no changes');
                 }
                 else {
-                    json(0, 'edit fail');
+                    json(0, 'error', $res);
                 }
             }
             $arr['create_time'] = date('Y-m-d H:i:s');
@@ -104,7 +107,13 @@
         public function getContentById()
         {
             $id = $_POST['id'];
-            $content = $this->article_model->getContent($id);
+            if(!empty($id)){
+                $content = $this->article_model->getContent($id);
+            }
+            else {
+                $content['title']  = '';
+                $content['content'] = '';
+            }
             exit(json_encode($content));
         }
 
