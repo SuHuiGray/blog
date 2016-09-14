@@ -54,6 +54,9 @@
                         imageUpload : true,
                         imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
                         imageUploadURL : "<?php echo url('editor/php/upload.php'); ?>",
+                        // imageUploadURL : "<?php echo url('editor/php/cross-domain-upload.php'); ?>",
+                        // crossDomainUpload : true,
+                        // uploadCallbackURL : "<?php echo url('editor/php/upload_callback.html'); ?>"
                     });
                 });
             }
