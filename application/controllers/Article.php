@@ -62,6 +62,7 @@
             $arr['create_time'] = date('Y-m-d H:i:s');
             $insert_id = $this->article_model->add($arr);
             if($insert_id){
+                $this->article_model->tag_operate($arr['tag']);
                 json(1,'add success', $insert_id);
             }
         }
@@ -73,7 +74,7 @@
             json(1, 'success', $arr);
         }
 
-        //获取所有文章
+        //获取所有文章,分页
         public function articles()
         {
             $current = isset($_GET['page']) && !empty($_GET['page']) ? $_GET['page'] : '';
@@ -120,9 +121,13 @@
         //删除指定id的文章
         public function deleteArticleById(){
             $id = $_GET['id'];
+            $content = $this->article_model->getContent($id);
+            $tagName = $content['tag'];
             $affect_row = $this->article_model->deleteById($id);
-            if($affect_row)
+            if($affect_row){
+                $this->article_model->tag_operate($tagName, true);
                 json(1, '删除成功');
+            }
             else
                 json(0, '删除失败');
         }

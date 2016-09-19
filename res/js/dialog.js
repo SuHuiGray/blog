@@ -9,6 +9,7 @@
             height: 300,
             title : '提示',
             cont : '',
+            time : false,
         },
         body = $("body"),
         w = $(win);
@@ -40,12 +41,29 @@
 
             //登录
             $("#login-btn").on("click", args.ok);
+            $("#usn, #psd").on("keypress", function(event){
+                // alert(event.keyCode);
+                if(event.keyCode == "13"){
+                    args.ok();
+                }
+            });
         },
 
         alert : function(arg){
             showMask();
             var args = $.extend({}, options, arg);
-            var alert_str = '<div id="layer" ><p id="layer-text" >'+args.title+'</p><span>'+args.cont+'</span><span id="login-btn">'+args.okVal+'</span></div>';
+            // var alert_str = '<div id="dlg" ><p id="dlg-cfm-title" >'+args.title+'</p><p id="dlg-cfm-cont">'+args.cont+'</p><span id="alt-btn">'+args.okVal+'</span></div>';
+            var alert_str = '<div id="dlg" ><p id="dlg-cfm-title" >'+args.title+'</p><p id="dlg-alt-cont">'+args.cont+'</p></div>';
+            body.append(alert_str);
+            var alert_top = (w.height()-$("#dlg").height())/2,
+                alert_left = (w.width()-$("#dlg").width())/2;
+            $("#dlg").css({"height":args.height, "width":args.width, "top":alert_top, "left":alert_left});
+            if(args.time){
+                setTimeout(function(){
+                    $("#mask,#dlg").remove();
+                    window.location.href = window.location.href;
+                }, args.time * 1000);
+            }
         },
 
         confirm : function(arg){
@@ -53,16 +71,19 @@
             var args = $.extend({}, options, arg);
             var alert_str = '<div id="dlg"><p id="dlg-cfm-title">'+args.title+'</p><p id="dlg-cfm-cont">'+args.cont+'</p><span id="dlg-cfm-ok">'+args.okVal+'</span><span id="dlg-cfm-cancel">'+args.canVal+'</span></div>';
             body.append(alert_str);
-            var login_top = (w.height()-args.height)/2,
-                login_left = (w.width()-args.width)/2;
+            var cfg_top = (w.height()-args.height)/2,
+                cfg_left = (w.width()-args.width)/2;
 
-            $("#dlg").css({"height":args.height, "width":args.width, "top":login_top, "left":login_left});
+            $("#dlg").css({"height":args.height, "width":args.width, "top":cfg_top, "left":cfg_left});
 
             //确认操作
             $("#dlg-cfm-ok").on("click", args.ok);
 
             //取消操作
-            cancel($("#dlg-cfm-cancel"));
+            if(args.cancel)
+                $("#dlg-cfm-cancel").on("click", args.cancel);
+            else
+                cancel($("#dlg-cfm-cancel"));
         }
     });
 })(jQuery, window)

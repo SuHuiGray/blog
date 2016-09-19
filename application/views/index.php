@@ -28,7 +28,7 @@
     <ul id="nav" class="nav"><span>文章分类</span>
         <li>All</li>
         <?php foreach($tags as $v){?>
-            <li><?php echo $v;?></li>
+            <li><?php echo $v['tag_name'];?><i>(<?php echo $v['total'];?>)</i></li>
         <?php }?>
     </ul>
     <?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?>
@@ -53,7 +53,7 @@
 <!-- <script type="text/javascript" src="<?php //echo res('js/search.js'); ?>"></script> -->
 <script type="text/tmpl" id="article_tmpl">
     <%if(list && list.length>0){for(var i=0; i<list.length; i++){var v=list[i]; %>
-        <div class="item"><a data-id="<%=v.id%>"><%=v.title%></a><?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?><p class="edit">编辑</p><p class="delete">删除</p><?php } ?><p class="summary"><%=v.summary%></p><p class="date"><%=v.create_time%></p></div>
+        <div class="item"><a data-id="<%=v.id%>"><%=v.title%></a><?php if(isset($_SESSION['user']) && !empty($_SESSION['user'])) { ?><p class="edit">编辑</p><p class="delete">删除</p><?php } ?><p class="summary"><%=v.summary%></p><!-- <p class="article-tag">标签:<%=v.tag%></p> --><p class="date"><%=v.create_time%></p></div>
     <%}}%>
 </script>
 <script type="text/javascript">
@@ -140,10 +140,16 @@ $(document).ready(function(){
                         console.log(id);
                         $.get("<?php echo url('article/deleteArticleById');?>" , {"id": id}).done(function(res){
                                 res = JSON.parse(res);
-                                alert(res.msg);
+                                // alert(res.msg);
                                 $("#dlg-cfm-cancel").trigger("click");
-                                var obj = $page_content.page('obj');
-                                obj.reload(current);
+                                $.alert({
+                                    width : 200,
+                                    height : 60,
+                                    cont : res.msg,
+                                    time : 1
+                                });
+                                // var obj = $page_content.page('obj');
+                                // obj.reload(current);
                             });
                     }
                 });
@@ -166,10 +172,12 @@ $(document).ready(function(){
     $("#nav li").on("click", function(){
         var tag = $(this).text(),
             obj = $page_content.page('obj');
+            tag = tag.substr(0, tag.lastIndexOf('('));
         if(tag == "All"){
             tag = '';
         }
         obj.param("tag", tag).reload(1);
+        // alert(tag);
     });
 
     //搜索文章标题
@@ -186,7 +194,11 @@ $(document).ready(function(){
     $("#myIcon").on('click', function(){
         $.login({
             ok : function(){
-                    $.ajax({
+                if($("#usn").val() == '' || $("#psd").val() == ''){
+                    alert("用户名和密码不能为空");
+                    return 0;
+                }
+                $.ajax({
                     url : "<?php echo url('home/login');?>",
                     method : "post",
                     data : {"usn":$("#usn").val(), "psd":$("#psd").val()},

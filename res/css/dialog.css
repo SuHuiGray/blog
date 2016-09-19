@@ -1,7 +1,7 @@
 /*confirm*/
 #dlg{display:inline-block; position:fixed; z-index:20; background:#fff; border-top:2px solid #FF4A00;}
 #dlg-cfm-title{ width:100%; text-align:center; margin-top:5px; border-bottom:1px solid silver;}
-#dlg-cfm-cont{text-indent:2em; word-break:break-all;}
+#dlg-cfm-cont{text-indent:2em; word-break:break-all; margin-top:8px;}
 #dlg-cfm-ok, #dlg-cfm-cancel{display:inline-block; width:35%; height:25px; padding-top:3px; border-radius:7px; background:#B9A499; text-align:center; position:absolute; cursor:pointer;}
 #dlg-cfm-ok{bottom:10px;left:10%;}
 #dlg-cfm-cancel{bottom:10px;left:55%;}
@@ -14,3 +14,4 @@
 .login-input{width:90%; height:36px; margin-left:5%; margin-top:20px; border-radius:4px; font-size: 16px; border:1px solid silver;}
 #login-btn{display:inline-block; width:90%; height:30px; margin-left:5%; margin-top:20px;background:red; text-align:center;padding-top:6px; color:white; font-size:18px; cursor:pointer;}
 
+#dlg-alt-cont{text-align:center; word-break:break-all; margin-top:8px;}
