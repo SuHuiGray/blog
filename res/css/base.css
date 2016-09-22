@@ -21,7 +21,7 @@ html{font-family:Verdana, sans-serif, 'MicroSoft Yahei'; font-size:16px;}
 .nav{display:inline-block; width:100%; margin-top:15px;}
 .nav span{font-size:1.5em; width:100px; height:30px; display:block; margin:0 ; color:#A5A5A5;}
 .nav li{text-decoration:none; width:100%; display:block; line-height:40px; font-size:1em; color:#FFFEE7; cursor:pointer; text-indent:1em; /*text-align:center*/}
-.nav li:hover{background:#3E4E5E; color:#CEDEEE;}
+.select-li, .nav li:hover{background:#6A7983; color:#CEDEEE;}
 .nav>li>i{float:right; margin-right:1em}
 .lab{display:inline-block; font-size:1em; width:49%; height:32px; text-align:center; color:#A5A5A5; cursor:pointer; padding-top:6px;}
 .lab:hover{background:#3E4E5E; color:#CEDEEE;}
@@ -30,7 +30,7 @@ html{font-family:Verdana, sans-serif, 'MicroSoft Yahei'; font-size:16px;}
 .content{display:inline-block; width:85%; height:100%; margin-left:15%;}
 /*item*/
 .item{display:inline-block; position:relative; width:46%; height:150px; margin:10px 20px; border-bottom:1px dashed silver; float:left;}
-.item a{ font-size:1.4em; margin:10px 0px 50px 20px; cursor:pointer;}
+.item a{ font-size:1.4em; margin:10px 0px 50px 20px; cursor:pointer; text-decoration:none; color:black;}
 .item a:hover{color:red;}
 .item .edit, .item .delete{display:none; padding-left:20px; margin-left:10px; position:absolute; cursor:pointer;}
 .item .edit{background:url(../img/edit.png) left no-repeat; right:70px;}

@@ -54,7 +54,7 @@
          * @param integer   id      article id
          * @return array    result array contain title & content
          */
-        public function getContent($id)
+        public function getContentById($id)
         {
             $sql = 'SELECT title, content, tag FROM article WHERE id='.$id;
             return $this->mysqli->fetchOne($sql);
@@ -98,6 +98,17 @@
             $total = $res['total'];*/
             $updateSql = "UPDATE tag SET total=total+$num where find_in_set(tag_name, '$tagName')";
             return $this->mysqli->dml($updateSql);
+        }
+
+        /**
+         * return the title and content according to the given time stamp
+         * @param data-time   stamp      article create_time
+         * @return array    result array contain title & content
+         */
+        public function getContentByIdByStamp($stamp)
+        {
+            $sql = 'SELECT title, content, tag FROM article WHERE create_time="'.$stamp.'"';
+            return $this->mysqli->fetchOne($sql);
         }
     }
 ?>

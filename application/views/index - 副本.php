@@ -83,6 +83,47 @@ $(document).ready(function(){
                 html = '没有数据';
             $content_body.empty().html(html);
 
+            //查看文章内容
+            /*$(".item a").on("click", function(){
+                var id = $(this).data("id");
+                if(id == '' || id == undefined){
+                    alert("未知错误，请查看其它文章");
+                    return 0;
+                }
+                $.ajax({
+                    url : "<?php echo url('article/getContentById');?>",
+                    method : "post",
+                    data : {"id":id},
+                    success : function(data){
+                        console.log(data);
+                        data = JSON.parse(data);
+                        $("#preview-title").text(data.title);
+                        $.getScript("<?php echo url('editor/editormd.js'); ?>", function() {
+                            $("#preview-back").after("<div id=\"preview-div\"></div>");
+                            editor = editormd("preview-div",{
+                                width : "60%",
+                                height : $(window).height()-70,
+                                path : "<?php echo url('editor/lib'); ?>",
+                                markdown : data.content,
+                                onload : function(){
+                                    this.previewing();
+                                    $(".editormd-preview-close-btn").css("visibility","hidden");
+                                },
+                            });
+                            $("#content").css("display","none");
+                            $("#preview-back").css("display", "block");
+                            //隐藏浏览界面
+                            $("#hide-preview").on("click", function(){
+                                $("#preview-back").css("display", "none");
+                                editor.editor.remove();
+                                $("#content").css("display","inline-block");
+                            });
+                        });
+
+                    }
+                });
+            });*/
+
             //编辑文章
             $(".edit").on("click", function(){
                 window.location.href = "<?php echo url('article/write');?>"+"?id="+$(this).siblings("a").data("id");
@@ -135,7 +176,7 @@ $(document).ready(function(){
         if(tag == "All"){
             tag = '';
         }
-        obj.param("tag", tag).param("title", '').reload(1);
+        obj.param("tag", tag).reload(1);
         $(this).siblings("li").each(function(index, obj){
             $(obj).removeClass("select-li");
         });

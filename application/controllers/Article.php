@@ -26,7 +26,7 @@
             $data['id'] = '';
             if(isset($_GET['id']) && !empty($_GET['id'])){
                 $data['id'] = $_GET['id'];
-                /*$content = $this->article_model->getContent($_GET['id']);
+                /*$content = $this->article_model->getContentById($_GET['id']);
                 $data['title'] = $content['title'];
                 $data['content'] = $content['content'];*/
             }
@@ -97,6 +97,7 @@
                 $summary = preg_replace('/(```(.|\n)+?```)+/', '', $v['content']);
                 $summary = strlen($summary)>160 ? mb_substr($summary, 0, 160, 'utf-8').'...' : $summary;
                 $tmp_article[$key]['summary'] = $summary;
+                $tmp_article[$key]['stamp'] = strtotime($tmp_article[$key]['create_time']);
                 unset($tmp_article[$key]['content']);
             }
             $result['current'] = $current;
@@ -109,7 +110,7 @@
         {
             $id = $_POST['id'];
             if(!empty($id)){
-                $content = $this->article_model->getContent($id);
+                $content = $this->article_model->getContentById($id);
             }
             else {
                 $content['title']  = '';
@@ -119,9 +120,10 @@
         }
 
         //删除指定id的文章
-        public function deleteArticleById(){
+        public function deleteArticleById()
+        {
             $id = $_GET['id'];
-            $content = $this->article_model->getContent($id);
+            $content = $this->article_model->getContentById($id);
             $tagName = $content['tag'];
             $affect_row = $this->article_model->deleteById($id);
             if($affect_row){
@@ -130,6 +132,26 @@
             }
             else
                 json(0, '删除失败');
+        }
+
+        public function watch($args)
+        {
+            // echo $_SERVER['REQUEST_URI'];
+            // var_dump($args);
+            if(empty($args)){
+                exit("没有这篇文章");
+            }
+            $stamp = date('Y-m-d H:i:s',$args[0]);
+            // $content = $this->article_model->getContentByIdByStamp($stamp);
+            $data['stamp'] = $stamp;
+            $this->display('watch', $data);
+        }
+
+        public function getContentByStamp()
+        {
+            $stamp = $_GET['stamp'];
+            $content = $this->article_model->getContentByIdByStamp($stamp);
+            exit(json_encode($content));
         }
     }
 ?>

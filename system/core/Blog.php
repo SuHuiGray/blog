@@ -13,8 +13,9 @@ $start_time = microtime(true);
     require_once $route->getDir().$route->getController().'.php';
     $c = $route->getController();
     $method =  $route->getMethod();
+    $args = $route->getArgs();
     $controller = new $c();
-    $controller->$method();
+    $controller->$method($args);
     $end_time = microtime(true);
     //echo number_format($end_time - $start_time, 4);
 ?>
