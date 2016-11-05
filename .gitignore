@@ -4,4 +4,5 @@
 /editor/uploads
 /tmp
 /.idea
-/.git
+.git
+.idea

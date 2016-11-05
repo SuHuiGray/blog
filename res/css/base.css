@@ -4,7 +4,7 @@ html{font-family:Verdana, sans-serif, 'MicroSoft Yahei'; font-size:16px;}
 .ell{text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
 
 /*top-nav*/
-#top-nav{display:inline-block; margin:5px 0 20px 15%; height:36px; font-size:18px; padding-left:15px;}
+#top-nav{display:inline-block; margin:5px 0 20px 15%; height:36px; font-size:1em; padding-left:15px;}
 
 /*left-pannel*/
 .pannel-left{display:inline-block; width:15%; height:100%; position:fixed; left:0px; top:0px; background:#3D454D;}
@@ -19,23 +19,26 @@ html{font-family:Verdana, sans-serif, 'MicroSoft Yahei'; font-size:16px;}
 #close-icon{display:inline-block; position:absolute; width:24px; height:24px; background:url(../img/cross16.png) center no-repeat; top:6px; right:0px; cursor:pointer}
 /*nav*/
 .nav{display:inline-block; width:100%; margin-top:15px;}
-.nav span{font-size:24px; width:100px; height:30px; display:block; margin:0 ; color:#A5A5A5;}
-.nav li{text-decoration:none; width:100%; display:block; line-height:40px; font-size:18px; color:#FFFEE7; cursor:pointer; text-indent:0.6em; text-align:center}
-.nav li:hover{background:#3E4E5E; color:#CEDEEE;}
-.lab{display:inline-block; font-size:18px; width:49%; height:32px; text-align:center; color:#A5A5A5; cursor:pointer; padding-top:6px;}
+.nav span{font-size:1.5em; width:100px; height:30px; display:block; margin:0 ; color:#A5A5A5;}
+.nav li{text-decoration:none; width:100%; display:block; line-height:40px; font-size:1em; color:#FFFEE7; cursor:pointer; text-indent:1em; /*text-align:center*/}
+.select-li, .nav li:hover{background:#6A7983; color:#CEDEEE;}
+.nav>li>i{float:right; margin-right:1em}
+.lab{display:inline-block; font-size:1em; width:49%; height:32px; text-align:center; color:#A5A5A5; cursor:pointer; padding-top:6px;}
 .lab:hover{background:#3E4E5E; color:#CEDEEE;}
 
 /*content*/
 .content{display:inline-block; width:85%; height:100%; margin-left:15%;}
 /*item*/
 .item{display:inline-block; position:relative; width:46%; height:150px; margin:10px 20px; border-bottom:1px dashed silver; float:left;}
-.item a{ font-size:22px; margin:10px 0px 50px 20px; cursor:pointer;}
+.item a{ font-size:1.4em; margin:10px 0px 50px 20px; cursor:pointer; text-decoration:none; color:black;}
+.item a:hover{color:red;}
 .item .edit, .item .delete{display:none; padding-left:20px; margin-left:10px; position:absolute; cursor:pointer;}
 .item .edit{background:url(../img/edit.png) left no-repeat; right:70px;}
 .item .delete{background:url(../img/delete.png) left no-repeat; right:10px;}
-.item .summary{font-size:14px; margin:15px 0 0 20px; width:96%; word-break:break-all; text-indent:2em; letter-spacing:1px;}
+.item .summary{font-size:0.8em; margin:15px 0 0 20px; width:96%; word-break:break-all; text-indent:2em; letter-spacing:1px;}
 /*.eye{background:url(../img/eye_24px_1116114_easyicon.net.png) center no-repeat; display:inline-block; width:24px; height:24px;}*/
-.date{display:inline-block; position:absolute; text-align:right; bottom:3px; right:0; margin-top:15px;}
+.item .date{display:inline-block; position:absolute; text-align:right; bottom:3px; right:0; margin-top:15px;}
+.item .article-tag{display:inline-block; position:absolute; text-align:right; bottom:3px; left:10px; margin-top:15px;}
 
 /*after login  see */
 
@@ -48,7 +51,7 @@ html{font-family:Verdana, sans-serif, 'MicroSoft Yahei'; font-size:16px;}
 .rank li a{cursor:pointer;}
 
 /*mask*/
-#mask{background:#000; opacity:0.75; filter:alpha(opacity=75); position:fixed; top:0; left:0;}
+#mask{background:#000; opacity:0.5; filter:alpha(opacity=50); position:fixed; top:0; left:0;}
 
 /*write article*/
 .atitle{width:78%; height:40px; border:1px solid white; margin: 10px 0 10px 2%; font-size:33px;}

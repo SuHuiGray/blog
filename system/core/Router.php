@@ -1,6 +1,7 @@
 <?php
     defined('PROJECT_FOLDER') OR exit('No direct script access allowed');
-    class Router {
+    class Router
+    {
         /*
          *默认的控制器和方法
          */
@@ -10,13 +11,15 @@
          *segments  --解析后的uri中各段，控制器和方法
          */
         protected $segments = array();
+        protected $args = array();
 
         /*
          *directory     --控制器所在目录
          */
         protected $directory = APP_PATH . '/controllers/';
 
-        public function __construct() {
+        public function __construct()
+        {
             $uri = &load_class('uri');
             $uri_str = $uri->getUri();
             $this->setRoute($uri_str);
@@ -25,7 +28,8 @@
         /*
          *设置路由
          */
-        protected function setRoute($uri_str){
+        protected function setRoute($uri_str)
+        {
             if(empty($uri_str) || $uri_str == '/'){
                 return ;
             }
@@ -36,9 +40,11 @@
 
              $this->controller = empty($tmp = array_shift($segments)) ? 'Home' : ucfirst($tmp);
              $this->method = empty($tmp = array_shift($segments)) ? 'index' : $tmp;
+             $this->args = $segments;
         }
 
-        protected function validateRequest($segments){
+        protected function validateRequest($segments)
+        {
             $c = count($segments);
             while($c-- > 0){
                 if(!file_exists($this->directory.'/'.$segments[0].'.php') && is_dir($this->directory.'/'.$segments[0])){
@@ -49,15 +55,23 @@
             return $segments;
         }
 
-        public function getController(){
+        public function getController()
+        {
             return $this->controller;
         }
 
-        public function getMethod(){
+        public function getMethod()
+        {
             return $this->method;
         }
 
-        public function getDir(){
+        public function getArgs()
+        {
+            return $this->args;
+        }
+
+        public function getDir()
+        {
             return $this->directory;
         }
     }

@@ -23,11 +23,11 @@
          */
         public function getAllTags()
         {
-            $sql = 'select tag_name from tag';
+            $sql = 'select tag_name,total from tag';
             $tmp = $this->mysqli->fetchAll($sql);
             $arr = array();
             foreach($tmp as $v){
-                $arr[] = $v['tag_name'];
+                $arr[] = $v;
             }
             return $arr;
         }
@@ -40,8 +40,8 @@
          */
         public function getArticles($tag='', $title='', $limit='')
         {
-            $sql = 'SELECT id, title, content, create_time FROM article WHERE 1=1 ';
-            $sql = empty($tag) ? $sql : $sql . ' AND tag="'.$tag.'"';
+            $sql = 'SELECT id, title, tag, content, create_time FROM article WHERE 1=1 ';
+            $sql = empty($tag) ? $sql : $sql . " AND find_in_set('$tag', tag)";
             $sql = empty($title) ? $sql : $sql . ' AND title like "%'.$title.'%"';
             $sql .= ' ORDER BY id DESC';
             $sql = empty($limit) ? $sql : $sql . $limit;
@@ -54,9 +54,9 @@
          * @param integer   id      article id
          * @return array    result array contain title & content
          */
-        public function getContent($id)
+        public function getContentById($id)
         {
-            $sql = 'SELECT title, content FROM article WHERE id='.$id;
+            $sql = 'SELECT title, content, tag FROM article WHERE id='.$id;
             return $this->mysqli->fetchOne($sql);
         }
 
@@ -83,6 +83,32 @@
         public function deleteById($id){
             $sql = "DELETE FROM article WHERE id=".$id;
             return $this->mysqli->dml($sql);
+        }
+
+        /**
+         * when publish article, relate tag total add 1
+         * @param string $tagName   related tag name
+         * @return interger     wheather this operate is ok
+         */
+        public function tag_operate($tagName, $decr = false)
+        {
+            $num = $decr ? -1 : 1;
+            /*$sql = "SELECT total FROM tag WHERE tag_name='".$tagName."'";
+            $res = $this->mysqli->fetchOne($sql);
+            $total = $res['total'];*/
+            $updateSql = "UPDATE tag SET total=total+$num where find_in_set(tag_name, '$tagName')";
+            return $this->mysqli->dml($updateSql);
+        }
+
+        /**
+         * return the title and content according to the given time stamp
+         * @param data-time   stamp      article create_time
+         * @return array    result array contain title & content
+         */
+        public function getContentByIdByStamp($stamp)
+        {
+            $sql = 'SELECT title, content, tag FROM article WHERE create_time="'.$stamp.'"';
+            return $this->mysqli->fetchOne($sql);
         }
     }
 ?>

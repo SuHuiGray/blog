@@ -72,7 +72,7 @@
             }
         }
 
-        //插入语句,参数arr是关联数组，key是数据库字段，value是要插入的值
+        //插入语句,参数arr是关联数组，key是数据库字段,value是要插入的值
         public function insert($table, $arr)
         {
             //构造一个插入字符串

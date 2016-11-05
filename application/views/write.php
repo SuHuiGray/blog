@@ -20,6 +20,7 @@
 
 <script type="text/javascript" src="<?php echo res('js/jquery.min.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo url('editor/editormd.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo res('js/dialog.js'); ?>"></script>
 <script type="text/javascript">
     var editor;
     $(function(){
@@ -88,7 +89,7 @@
                     //选择标签
                     var tag_str = '<div id="layer" ><p id="layer-text" >选择标签</p><p id="close"></p><br>';
                     for(var i=0; i<tags_arr.length; i++){
-                        tag_str += '<span class="tag-span">'+tags_arr[i]+'</span>';
+                        tag_str += '<span class="tag-span">'+tags_arr[i]['tag_name']+'</span>';
                     }
                     tag_str += '<div id="tag-store"></div><span id="login-btn">确定</span></div>';
 
@@ -121,7 +122,12 @@
 
                     //发布
                     $("#login-btn").on("click", function(){
-                        $("#tag").val($("#tag-store span").text());
+                        var tagStr = "";
+                        $("#tag-store span").each(function(index, obj){
+                            tagStr += $(obj).text()+",";
+                        });
+                        tagStr = tagStr.substr(0, tagStr.length-1);
+                        $("#tag").val(tagStr);
                         $.ajax({
                             type : "post",
                             url : "<?php echo url('article/publication')?>" + "<?php echo empty($id) ? '' : '?action=edit&id='.$id;?>",
@@ -130,8 +136,21 @@
                                 data = JSON.parse(data);
                                 if(data.ok){
                                     $("#mask,#layer").remove();
-                                    alert(data.msg);
-                                    console.log(data);
+                                    /*alert(data.msg);
+                                    console.log(data);*/
+                                    $.confirm({
+                                        width:280,
+                                        height:100,
+                                        cont : data.msg,
+                                        okVal : "再写一篇",
+                                        canVal : "查看文章",
+                                        ok : function(){
+                                            window.location.href = window.location.href;
+                                        },
+                                        cancel : function(){
+                                            window.location.href = "<?php echo url(); ?>";
+                                        }
+                                    });
                                 }
                             },
                             error : function(XMLHttpResponse){
